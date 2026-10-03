@@ -1,0 +1,79 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-image: url("../assets/bg-fauna.jpg");
+    color: #121111;
+    
+}
+
+main{
+    padding: 40px 20px;
+}
+
+.fauna{
+    max-width: 1200px;
+    margin: auto;
+}
+
+.fauna h2{
+    text-align: center;
+    margin-bottom: 10px;
+    color: black;
+}
+
+.fauna p{
+    text-align: center;
+    margin-bottom: 30px;
+    color: black;
+}
+
+.fauna-list{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+/* bagian kartu */
+.fauna-card{
+    background: rgb(250, 249, 248);
+    border-radius: 20px;
+    overflow: hidden;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: 0.3s;
+}
+/* EFEK KARTU GAMBAR*/
+.fauna-card:hover{
+    transform: translateY(-5px);
+}
+
+/* BAGIAN UKURAN GAMBAR KARTU*/
+.fauna-card img{
+    max-width: 100%;
+    height: 220px;
+    object-fit: cover;
+    display: block;
+}
+.fauna-card h3{
+    padding: 15px;
+    font: 22px;
+}
+
+/*deskripsi di sembunyikan*/
+.fauna-detail{
+    display: none;
+    padding: 0 15px 20px;
+}
+
+.fauna-detail p{
+    margin-top: 10px;
+    line-height: 1.6;
+}
+/*saat card di buka*/
+.fauna-card.active .fauna-detail{
+    display: block;
+}
