@@ -1,0 +1,121 @@
+:root {
+  --g900: #14291c;   /* hijau hutan tua */
+  --g800: #1d3b29;
+  --g700: #2c5a3a;   /* hijau utama */
+  --g500: #5a8560;   /* hijau daun */
+  --g100: #dfe8dc;   /* hijau muda pucat */
+  --cream: #eeeee3;  /* latar halaman (tidak putih terang) */
+  --brown: #7b5d3f;  /* cokelat kayu */
+  --sand: #c9b98a;   /* aksen pasir */
+  --text: #26352b;
+}
+
+html { 
+    scroll-behavior: smooth; 
+}
+
+body { 
+    font-family: 'Poppins', sans-serif; 
+    background: #eeeee3; 
+    color: #26352b; 
+    line-height: 1.7; 
+}
+
+h1, h2, h3, h4, h5, .navbar-brand {
+    font-family: 'Poppins', serif; 
+    color: #1d3b29; 
+
+}
+
+section, header { 
+    scroll-margin-top: 70px; 
+}
+
+/* ---------- Navbar ---------- */
+.navbar-custom {
+    padding: 1rem 0; 
+    transition: all .4s ease;    
+}
+
+.navbar-custom .navbar-brand { 
+    color: #fff; 
+    font-weight: 700; 
+    font-size: 1.5rem; 
+}
+
+.navbar-custom .nav-link { 
+    color: #e6ede1; 
+    margin: 0 .3rem; 
+    font-weight: 500; 
+}
+
+.navbar-custom .nav-link:hover, .navbar-custom .nav-link.active { 
+    color: var(--sand); 
+}
+
+.navbar-custom .navbar-toggler { border-color: rgba(255,255,255,.5); }
+.navbar-custom .navbar-toggler-icon { filter: invert(1); }
+/* Kelas .scrolled ditambahkan oleh JavaScript saat halaman di-scroll */
+.navbar-custom.scrolled { background: var(--g900); padding: .55rem 0; box-shadow: 0 4px 16px rgba(0,0,0,.3); }
+@media (max-width: 991px) { .navbar-custom .navbar-collapse { background: var(--g900); padding: 1rem; border-radius: 12px; margin-top: .5rem; } }
+
+/* ---------- Hero ---------- */
+/* Jangan timpa warna h1 yang ada di dalam .hero atau .page-hero */
+h1:not(.hero h1):not(.page-hero h1), h2, h3, h4, h5, .navbar-brand {
+    font-family: 'Poppins', serif; 
+    color: #1d3b29; 
+}
+
+section, header { 
+    scroll-margin-top: 70px; 
+}
+
+/* ---------- Navbar ---------- */
+.navbar-custom {
+    padding: 1rem 0; 
+    transition: all .4s ease;    
+}
+
+.navbar-custom .navbar-brand { 
+    color: #fff; 
+    font-weight: 700; 
+    font-size: 1.5rem; 
+}
+
+.navbar-custom .nav-link { 
+    color: #e6ede1; 
+    margin: 0 .3rem; 
+    font-weight: 500; 
+}
+
+.navbar-custom .nav-link:hover, .navbar-custom .nav-link.active { 
+    color: var(--sand); 
+}
+
+.navbar-custom .navbar-toggler { border-color: rgba(255,255,255,.5); }
+.navbar-custom .navbar-toggler-icon { filter: invert(1); }
+
+.navbar-custom.scrolled { background: var(--g900); padding: .55rem 0; box-shadow: 0 4px 16px rgba(0,0,0,.3); }
+@media (max-width: 991px) { .navbar-custom .navbar-collapse { background: var(--g900); padding: 1rem; border-radius: 12px; margin-top: .5rem; } }
+
+/* ---------- Hero ---------- */
+.hero { 
+    min-height: 100vh; 
+    display: flex; 
+    align-items: center; 
+    color: #fff;
+    background-color: var(--g900);
+    background-image: linear-gradient(rgba(12,30,19,.7), rgba(12,30,19,.55)), var(--bg);
+    background-size: cover; 
+    background-position: center; 
+}
+
+.hero h1, .page-hero h1 { 
+    color: #ffffff !important; /* Paksa teks jadi putih terang */
+    text-shadow: 0 2px 12px rgba(0,0,0,.4); 
+}
+
+.page-hero { 
+    min-height: 60vh; 
+    padding-top: 90px; 
+}
