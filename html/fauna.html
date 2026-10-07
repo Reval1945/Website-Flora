@@ -6,108 +6,137 @@
     <title>Fauna Langka di Indonesia</title>
 
     <link rel="stylesheet" href="../css/fauna.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Poppins:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <header>
       <h1>Flora & Fauna Indonesia</h1>
 
       <nav>
-        <a href="index.html">Home</a>
+        <a href="../index.html">Home</a>
         <a href="fauna.html">Fauna</a>
         <a href="flora.html">Flora</a>
       </nav>
     </header>
 
     <main>
-      <section class="fauna">
+      <!-- HALAMAN 1 -->
+      <section class="page page-1 welcome" id="welcome">
+        <h2 id="typing"></h2>
+        <p>Mari mengenal berbagai fauna langka di Indonesia</p>
+        <button id="startBtn">Mulai Jelajahi</button>
+      </section>
+
+      <!-- HALAMAN 2 -->
+      <!-- HALAMAN 2 - FLOATING GALLERY -->
+      <section class="page page-2" id="page-2">
+        <!-- Container untuk merender 10 kartu melayang -->
+        <div id="floating-container"></div>
+      </section>
+
+      <!-- HALAMAN 3 -->
+      <section class="page page-3 fauna" id="fauna">
         <h2>Fauna Indonesia</h2>
-        <p>Apa aja sih hewan langka di Indonesia?</p>
+        <p class="p">Apa aja sih hewan langka di Indonesia?</p>
 
         <div class="fauna-list">
+          <!-- Komodo -->
           <article class="fauna-card">
             <img src="../assets/komodo.jpg" alt="Komodo" />
-
             <h3>Komodo</h3>
-
-            <div class="fauna-detail">
-              <p>
-                Komodo merupakan fauna khas Indonesia yang termasuk hewan langka
-                dan dilindungi. Hewan ini hanya ditemukan secara alami di
-                beberapa pulau di Nusa Tenggara Timur, terutama Pulau Komodo,
-                Rinca, dan sekitarnya. Kelangkaan komodo disebabkan oleh
-                habitatnya yang terbatas serta berbagai ancaman terhadap
-                kelangsungan hidupnya. Karena itu, komodo perlu dilindungi agar
-                populasinya tetap terjaga dan tidak semakin berkurang.
-              </p>
+            <div class="fauna-popup">
+              <div class="popup-content">
+                <button class="close">&times;</button>
+                <img src="../assets/komodo.jpg" alt="Komodo" />
+                <h2>Komodo</h2>
+                <p>
+                  Komodo merupakan fauna khas Indonesia yang termasuk hewan
+                  langka dan dilindungi. Hewan ini hanya ditemukan secara alami
+                  di beberapa pulau di Nusa Tenggara Timur.
+                </p>
+              </div>
             </div>
           </article>
 
+          <!-- Badak Jawa -->
           <article class="fauna-card">
             <img src="../assets/badak jawa.jpg" alt="Badak Jawa" />
-
             <h3>Badak Jawa</h3>
-
-            <div class="fauna-detail">
-              <p>
-                Badak Jawa merupakan salah satu fauna langka dan dilindungi di
-                Indonesia. Hewan ini memiliki populasi yang sangat terbatas dan
-                saat ini hanya dapat ditemukan di Taman Nasional Ujung Kulon,
-                Banten. Kelangkaannya disebabkan oleh habitat yang terbatas,
-                perburuan pada masa lalu, serta rendahnya kemampuan berkembang
-                biak. Oleh karena itu, badak Jawa perlu terus dilindungi agar
-                populasinya tidak semakin menurun dan terhindar dari kepunahan.
-              </p>
+            <div class="fauna-popup">
+              <div class="popup-content">
+                <button class="close">&times;</button>
+                <img src="../assets/badak jawa.jpg" alt="Badak Jawa" />
+                <h2>Badak Jawa</h2>
+                <p>
+                  Badak Jawa merupakan salah satu fauna langka dan dilindungi di
+                  Indonesia yang saat ini hanya dapat ditemukan di Ujung Kulon.
+                </p>
+              </div>
             </div>
           </article>
 
+          <!-- Harimau Sumatera -->
           <article class="fauna-card">
-            <img src="../assets/Harimau Sumatera.jpg" alt="Harimau Sumatra" />
+            <img src="../assets/Harimau Sumatera.jpg" alt="Harimau Sumatera" />
             <h3>Harimau Sumatera</h3>
-
-            <div class="fauna-detail">
-              <p>
-                Harimau Sumatera merupakan salah satu fauna langka dan
-                dilindungi di Indonesia. Hewan ini hanya ditemukan di Pulau
-                Sumatera dan hidup di berbagai habitat hutan. Populasinya terus
-                menghadapi ancaman akibat hilangnya habitat, perburuan liar, dan
-                berkurangnya mangsa. Oleh karena itu, harimau Sumatera perlu
-                dilindungi agar populasinya tetap terjaga dan tidak mengalami
-                kepunahan.
-              </p>
+            <div class="fauna-popup">
+              <div class="popup-content">
+                <button class="close">&times;</button>
+                <img
+                  src="../assets/Harimau Sumatera.jpg"
+                  alt="Harimau Sumatera"
+                />
+                <h2>Harimau Sumatera</h2>
+                <p>
+                  Harimau Sumatera hanya ditemukan di Pulau Sumatera dan hidup
+                  di berbagai habitat hutan.
+                </p>
+              </div>
             </div>
           </article>
 
+          <!-- Anoa -->
           <article class="fauna-card">
-            <img src="../assets/anoa.jpg" alt="" />
-
+            <img src="../assets/Anoa (1).jpg" alt="Anoa" />
             <h3>Anoa</h3>
-
-            <div class="fauna-detail">
-              <p>
-                Anoa merupakan fauna endemik Indonesia yang berasal dari Pulau
-                Sulawesi. Hewan ini termasuk fauna langka dan dilindungi karena
-                populasinya terus menghadapi berbagai ancaman. Perusakan habitat
-                dan perburuan menjadi beberapa faktor yang menyebabkan jumlah
-                anoa berkurang. Oleh karena itu, anoa perlu dilindungi agar
-                tetap dapat hidup dan berkembang di habitat alaminya.
-              </p>
+            <div class="fauna-popup">
+              <div class="popup-content">
+                <button class="close">&times;</button>
+                <img src="../assets/Anoa (1).jpg" alt="Anoa" />
+                <h2>Anoa</h2>
+                <p>Anoa merupakan fauna endemik dari Pulau Sulawesi.</p>
+              </div>
             </div>
           </article>
+
+          <!-- Orang Utan -->
           <article class="fauna-card">
-            <img src="../assets/utan.jpg" alt="" />
-
+            <img src="../assets/orang utan.jpg" alt="Orang Utan" />
             <h3>Orang Utan</h3>
+            <div class="fauna-popup">
+              <div class="popup-content">
+                <button class="close">&times;</button>
+                <img src="../assets/orang utan.jpg" alt="Orang Utan" />
+                <h2>Orang Utan</h2>
+                <p>Orang utan hidup di hutan Sumatera dan Kalimantan.</p>
+              </div>
+            </div>
+          </article>
 
-            <div class="fauna-detail">
-              <p>
-                Orang utan merupakan fauna langka yang hidup di hutan-hutan
-                Indonesia, terutama di Pulau Sumatera dan Kalimantan.
-                Populasinya terancam akibat kerusakan dan hilangnya habitat
-                hutan serta perburuan liar. Orang utan memiliki peran penting
-                dalam menjaga keseimbangan ekosistem hutan. Oleh karena itu,
-                keberadaannya perlu dilindungi agar tidak semakin terancam
-                kepunahan.
-              </p>
+          <!-- Cendrawasih -->
+          <article class="fauna-card">
+            <img src="../assets/cendrawasih (2).jpg" alt="Cendrawasih" />
+            <h3>Cendrawasih</h3>
+            <div class="fauna-popup">
+              <div class="popup-content">
+                <button class="close">&times;</button>
+                <img src="../assets/cendrawasih (2).jpg" alt="Cendrawasih" />
+                <h2>Cendrawasih</h2>
+                <p>Cenderawasih terkenal karena bulunya yang indah di Papua.</p>
+              </div>
             </div>
           </article>
         </div>
@@ -115,5 +144,13 @@
     </main>
 
     <footer>&copy;2026 Flora & Fauna Indonesia</footer>
+
+    <script src="../js/floating-gallery.js"></script>
+    <script>
+      // Jalankan animasi pada id "floating-container"
+      initFloatingGallery("floating-container");
+    </script>
+
+    <script src="../js/fauna.js"></script>
   </body>
 </html>
