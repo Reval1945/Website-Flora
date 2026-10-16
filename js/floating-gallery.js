@@ -12,10 +12,10 @@
       { src: "../assets/Anoa (1).jpg", link: "#" },
       { src: "../assets/orang utan.jpg", link: "#" },
       { src: "../assets/cendrawasih (2).jpg", link: "#" },
-      { src: "../assets/bg1.jpg", link: "#" },
-      { src: "../assets/bg2.jpg", link: "#" },
+      { src: "../assets/monyet.jpg", link: "#" },
+      { src: "../assets/rusa.jpg", link: "#" },
       { src: "../assets/komodo.jpg", link: "#" },
-      { src: "../assets/badak jawa.jpg", link: "#" },
+      { src: "../assets/citah.jpg", link: "#" },
     ];
 
     // 2. LAYOUT POSISI

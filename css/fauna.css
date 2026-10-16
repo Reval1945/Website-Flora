@@ -71,6 +71,27 @@ nav a:hover {
   color: rgb(240, 145, 100);
 }
 
+/* ================
+STYLING JUDUL DAN PARAGRAF
+==================*/
+
+#judul {
+  opacity: 0;
+  animation: turun 2s ease-out forwards;
+}
+
+@keyframes turun {
+  from {
+    opacity: 0;
+    transform: translateY(-60px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 /* =========================================
    PAGE 1 - WELCOME
 ========================================= */
@@ -256,48 +277,64 @@ nav a:hover {
   text-align: center;
 }
 
-/* POPUP */
+/* Popup menutupi seluruh layar */
 .fauna-popup {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.8);
+
   display: none;
   align-items: center;
   justify-content: center;
-  z-index: 999;
+
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.75);
+  z-index: 9999;
 }
 
+/* Hanya popup yang aktif yang ditampilkan */
 .fauna-popup.active {
   display: flex;
 }
 
+/* Kotak popup */
 .popup-content {
   position: relative;
-  width: 90%;
+  width: 100%;
   max-width: 650px;
-  max-height: 85vh;
+  max-height: 90vh;
   overflow-y: auto;
   background: #ffffff;
   color: #333333;
   border-radius: 20px;
   padding: 30px;
   text-align: center;
+  animation: popupMasuk 0.3s ease;
 }
 
+/* Gambar di dalam popup */
 .popup-content img {
   width: 100%;
-  height: 300px;
+  height: 320px;
   object-fit: cover;
+  object-position: center;
   border-radius: 12px;
+  display: block;
 }
 
+/* Nama hewan */
 .popup-content h2 {
+  font-family: "DM Serif Display", serif;
+  font-size: 32px;
   margin: 15px 0 10px;
   color: #111;
 }
 
+/* Deskripsi */
 .popup-content p {
-  line-height: 1.6;
+  font-family: "Poppins", sans-serif;
+  font-size: 15px;
+  line-height: 1.8;
+  text-align: justify;
   font-size: 15px;
   color: #444;
 }
@@ -306,11 +343,20 @@ nav a:hover {
   position: absolute;
   top: 15px;
   right: 20px;
+  z-index: 2;
+
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
   border: none;
-  background: none;
+  background: rgba(0, 0, 0, 0.65);
+  color: white;
   font-size: 30px;
   cursor: pointer;
-  color: #333;
+}
+
+.close:hover {
+  background: #c0392b;
 }
 
 footer {
@@ -318,4 +364,91 @@ footer {
   padding: 20px;
   background: #000;
   color: #888;
+}
+
+/* Page 4*/
+
+/* PAGE 4 */
+.page-4 {
+  min-height: 100vh;
+  padding: 100px 8%;
+  box-sizing: border-box;
+
+  background:
+    radial-gradient(
+      circle,
+      transparent 20%,
+      rgba(0, 0, 0, 0.7) 100%
+    ),
+    url("../assets/bg-3.jpg");
+
+  background-size: cover;
+  background-position: center;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.video-content {
+  width: 100%;
+  max-width: 1100px;
+  text-align: center;
+  color: white;
+}
+
+.video-content h2 {
+  font-family: "DM Serif Display", serif;
+  font-size: clamp(30px, 4vw, 48px);
+  margin-bottom: 15px;
+}
+
+.video-content p {
+  font-family: "Poppins", sans-serif;
+  margin-bottom: 25px;
+  line-height: 1.7;
+}
+
+.video-container {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-radius: 18px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+}
+
+.video-container iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+
+/* Animasi popup */
+@keyframes popupMasuk {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.96);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Tampilan popup pada layar HP */
+@media (max-width: 600px) {
+  .popup-content {
+    padding: 18px;
+  }
+
+  .popup-content img {
+    height: 230px;
+  }
+
+  .popup-content h2 {
+    font-size: 26px;
+  }
 }
