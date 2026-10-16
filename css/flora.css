@@ -16,19 +16,18 @@ html {
 
 body { 
     font-family: 'Poppins', sans-serif; 
-    background: #eeeee3; 
-    color: #26352b; 
+    background: var(--cream); 
+    color: var(--text); 
     line-height: 1.7; 
 }
 
-/* Jangan timpa warna h1 yang ada di dalam .hero atau .page-hero */
-h1:not(.hero h1):not(.page-hero h1), h2, h3, h4, h5 {
-    font-family: 'Poppins', serif; 
-    color: #1d3b29; 
+h1, h2, h3, h4, h5 {
+    font-family: 'Poppins', sans-serif; 
+    color: var(--g800); 
 }
 
 .navbar-brand {
-    font-family: 'Poppins', serif;
+    font-family: 'Poppins', sans-serif;
     color: #fff;
 }
 
@@ -80,7 +79,9 @@ section, header {
     } 
 }
 
+/* ---------- Hero ---------- */
 .hero { 
+    position: relative;
     min-height: 100vh; 
     display: flex; 
     align-items: center; 
@@ -99,4 +100,517 @@ section, header {
 .page-hero { 
     min-height: 60vh; 
     padding-top: 90px; 
+}
+
+/* Efek memudar ke warna section Tentang (hijau tua) */
+.hero::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 420px;
+    background: linear-gradient(
+        to bottom,
+        rgba(20, 41, 28, 0) 0%,
+        rgba(20, 41, 28, 0.35) 35%,
+        rgba(20, 41, 28, 0.75) 70%,
+        var(--g900) 100%
+    );
+    pointer-events: none;
+}
+
+/* Konten hero tetap di atas gradient */
+.hero .container {
+    position: relative;
+    z-index: 1;
+}
+
+/* ---------- Tentang (hijau gelap, menyatu dengan hero) ---------- */
+#tentang, #flora, #fauna {
+    background: var(--g900);
+    color: #e6ede1;
+    margin-top: -1px;          /* hindari garis tipis antara hero dan section */
+}
+
+#tentang h2, #flora h2, #fauna h2 {
+    color: #fff;
+}
+
+#tentang p, #flora > .container > div > p, #fauna > .container > div > p {
+    color: #d3dfcd;
+}
+
+/* ---------- Section gelap tambahan (Fakta, Konservasi, Taman, FAQ, Footer) ---------- */
+.section-dark {
+    background: var(--g900);
+    color: #e6ede1;
+}
+
+.section-dark h2 {
+    color: #fff;
+}
+
+.section-dark .section-intro {
+    color: #d3dfcd;
+}
+
+.stat-number {
+    font-size: 2.6rem;
+    font-weight: 600;
+    line-height: 1.2;
+    color: var(--sand);
+}
+
+.icon-circle {
+    width: 64px;
+    height: 64px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-size: 1.6rem;
+    background: var(--g100);
+    color: var(--g700);
+}
+
+#faq .accordion {
+    --bs-accordion-bg: var(--g800);
+    --bs-accordion-btn-bg: var(--g800);
+    --bs-accordion-active-bg: var(--g700);
+    --bs-accordion-active-color: #fff;
+    --bs-accordion-border-color: rgba(255, 255, 255, .12);
+}
+
+/* ---------- Kartu Flora & Fauna ---------- */
+.card-species {
+    background: #f7f7ef;
+    border-radius: 16px;
+    overflow: hidden;
+    transition: transform .3s ease, box-shadow .3s ease;
+}
+
+.card-species:hover {
+    transform: translateY(-6px);
+}
+
+.card-species .card-title {
+    color: var(--g700);
+    font-weight: 600;
+}
+
+/* =====================================================
+   RESPONSIF
+   Desktop : > 991px (default di atas)
+   Tablet  : 576px - 991px
+   Mobile  : <= 575px
+   ===================================================== */
+
+/* ---------- Tablet ---------- */
+@media (max-width: 991px) {
+    .hero {
+        min-height: 90vh;
+        padding: 110px 0 140px;
+    }
+
+    .hero h1 {
+        font-size: 2.6rem;
+    }
+
+    .hero .lead {
+        font-size: 1.05rem;
+    }
+
+    .hero::after {
+        height: 320px;
+    }
+
+    #tentang {
+        padding-top: 3rem !important;
+        padding-bottom: 4rem !important;
+    }
+
+    #tentang h2 {
+        font-size: 1.8rem;
+        text-align: center;
+    }
+
+    #tentang p {
+        text-align: justify;
+    }
+
+    #tentang img {
+        max-width: 85%;
+        display: block;
+        margin: 0 auto;
+    }
+}
+
+/* ---------- Mobile ---------- */
+@media (max-width: 575px) {
+    .navbar-custom {
+        padding: .7rem 0;
+    }
+
+    .navbar-custom .navbar-brand {
+        font-size: 1.25rem;
+    }
+
+    .hero {
+        min-height: 85vh;
+        padding: 100px 0 120px;
+    }
+
+    .hero h1 {
+        font-size: 1.8rem;
+        line-height: 1.3;
+    }
+
+    .hero .lead {
+        font-size: .95rem;
+        line-height: 1.6;
+        margin-top: 1rem !important;
+        margin-bottom: 1.5rem !important;
+    }
+
+    /* tombol tersusun vertikal & selebar layar */
+    .hero .btn {
+        display: block;
+        width: 100%;
+        max-width: 280px;
+        margin: 0 auto .75rem !important;
+        font-size: 1rem;
+        padding: .6rem 1rem;
+    }
+
+    .hero::after {
+        height: 220px;
+    }
+
+    #tentang {
+        padding-top: 2rem !important;
+        padding-bottom: 3rem !important;
+    }
+
+    #tentang h2 {
+        font-size: 1.5rem;
+        margin-bottom: 1rem !important;
+    }
+
+    #tentang p {
+        font-size: .95rem;
+        text-align: left;
+    }
+
+    #tentang img {
+        max-width: 100%;
+    }
+}
+
+/* ---------- Kartu Flora & Fauna versi HP: 4 kartu sebaris, ukuran kecil ---------- */
+@media (max-width: 575px) {
+    #flora .card-species,
+    #fauna .card-species {
+        border-radius: 10px;
+    }
+
+    #flora .card-body,
+    #fauna .card-body {
+        padding: .45rem .35rem;
+    }
+
+    #flora .card-title,
+    #fauna .card-title {
+        font-size: .7rem;
+        line-height: 1.25;
+    }
+
+    #flora .card small,
+    #fauna .card small {
+        font-size: .55rem;
+        line-height: 1.2;
+        display: block;
+    }
+
+    /* deskripsi disembunyikan karena kartu terlalu sempit */
+    #flora .card-text,
+    #fauna .card-text {
+        display: none;
+    }
+}
+
+/* =====================================================
+   HALAMAN FLORA
+   ===================================================== */
+.page-hero::after {
+    height: 220px;
+}
+
+/* ---------- Judul & pil informasi ---------- */
+.fl-judul {
+    color: #fff;
+    font-weight: 600;
+}
+
+.fl-judul::after {
+    content: "";
+    display: block;
+    width: 64px;
+    height: 3px;
+    margin: .75rem auto 1rem;
+    border-radius: 3px;
+    background: var(--sand);
+}
+
+.fl-pill {
+    display: inline-flex;
+    align-items: center;
+    padding: .45rem 1rem;
+    border-radius: 50px;
+    font-size: .9rem;
+    color: #fff;
+    background: rgba(255, 255, 255, .12);
+    border: 1px solid rgba(255, 255, 255, .25);
+    backdrop-filter: blur(4px);
+}
+
+/* ---------- Kartu flora ---------- */
+.fl-card {
+    position: relative;
+    display: block;
+    aspect-ratio: 3 / 4;
+    border-radius: 18px;
+    overflow: hidden;
+    cursor: pointer;
+    background: var(--g800);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, .35);
+    transition: transform .35s ease, box-shadow .35s ease;
+    animation: flMuncul .6s ease both;
+}
+
+/* ikon daun sebagai pengganti jika foto belum ada */
+.fl-card::before {
+    content: "\f06c";
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3.5rem;
+    color: rgba(255, 255, 255, .1);
+}
+
+.fl-card img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform .6s ease;
+}
+
+/* lapisan gelap agar teks terbaca */
+.fl-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(12, 30, 19, .92) 0%, rgba(12, 30, 19, .35) 45%, transparent 70%);
+}
+
+.fl-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 36px rgba(0, 0, 0, .5);
+}
+
+.fl-card:hover img {
+    transform: scale(1.08);
+}
+
+.fl-card:focus-visible {
+    outline: 3px solid var(--sand);
+    outline-offset: 3px;
+}
+
+.fl-chip {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    z-index: 2;
+    padding: .2rem .7rem;
+    border-radius: 50px;
+    font-size: .7rem;
+    font-weight: 500;
+    color: #fff;
+    background: rgba(20, 41, 28, .75);
+    backdrop-filter: blur(4px);
+}
+
+.fl-info {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 2;
+    padding: 1rem;
+    color: #fff;
+}
+
+.fl-info h5 {
+    margin: 0;
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #fff;
+}
+
+.fl-info small {
+    display: block;
+    font-style: italic;
+    color: var(--sand);
+}
+
+.fl-more {
+    display: inline-flex;
+    align-items: center;
+    gap: .4rem;
+    margin-top: .5rem;
+    font-size: .8rem;
+    opacity: 0;
+    transform: translateY(6px);
+    transition: opacity .3s ease, transform .3s ease;
+}
+
+.fl-card:hover .fl-more,
+.fl-card:focus-visible .fl-more {
+    opacity: 1;
+    transform: none;
+}
+
+/* di layar sentuh tidak ada hover, jadi petunjuk selalu terlihat */
+@media (hover: none) {
+    .fl-more {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+@keyframes flMuncul {
+    from { opacity: 0; transform: translateY(18px); }
+    to   { opacity: 1; transform: none; }
+}
+
+/* ---------- Modal detail ---------- */
+.fl-modal {
+    background: var(--cream);
+    border: 0;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.fl-close {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    z-index: 5;
+    padding: .6rem;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, .45);
+    opacity: 1;
+}
+
+.fl-banner {
+    position: relative;
+    height: 280px;
+    background: var(--g800);
+}
+
+.fl-banner img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.fl-banner::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(12, 30, 19, .9) 0%, rgba(12, 30, 19, .25) 55%, transparent 80%);
+}
+
+.fl-banner-text {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 2;
+    padding: 1.25rem 1.5rem;
+    color: #fff;
+}
+
+.fl-banner-text .fl-chip {
+    position: static;
+    display: inline-block;
+    background: var(--g700);
+}
+
+.fl-banner-text h3 {
+    color: #fff;
+    font-weight: 600;
+}
+
+.fl-banner-text em {
+    color: var(--sand);
+}
+
+.fl-box {
+    display: flex;
+    gap: .9rem;
+    height: 100%;
+    padding: 1rem;
+    border-radius: 14px;
+    background: rgba(44, 90, 58, .09);
+}
+
+.fl-box > i {
+    flex: 0 0 auto;
+    width: 38px;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    color: #fff;
+    background: var(--g700);
+}
+
+.fl-box small {
+    display: block;
+    font-weight: 600;
+    color: var(--g700);
+}
+
+@media (max-width: 575px) {
+    .fl-banner {
+        height: 210px;
+    }
+
+    .fl-info {
+        padding: .65rem;
+    }
+
+    .fl-info h5 {
+        font-size: .9rem;
+    }
+
+    .fl-info small,
+    .fl-more {
+        font-size: .68rem;
+    }
+
+    .fl-chip {
+        top: 8px;
+        left: 8px;
+        font-size: .62rem;
+    }
 }

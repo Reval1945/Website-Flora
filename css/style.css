@@ -29,6 +29,13 @@ h1, h2, h3, h4, h5 {
 .navbar-brand {
     font-family: 'Poppins', sans-serif;
     color: #fff;
+
+}
+
+.navbar-brand:hover {
+    font-family: 'Poppins', sans-serif;
+    color: #fff;
+    
 }
 
 section, header { 
