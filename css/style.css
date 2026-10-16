@@ -21,8 +21,7 @@ body {
     line-height: 1.7; 
 }
 
-/* Jangan timpa warna h1 yang ada di dalam .hero atau .page-hero */
-h1:not(.hero h1):not(.page-hero h1), h2, h3, h4, h5 {
+h1, h2, h3, h4, h5 {
     font-family: 'Poppins', sans-serif; 
     color: var(--g800); 
 }
@@ -82,6 +81,7 @@ section, header {
 
 /* ---------- Hero ---------- */
 .hero { 
+    position: relative;
     min-height: 100vh; 
     display: flex; 
     align-items: center; 
@@ -100,4 +100,234 @@ section, header {
 .page-hero { 
     min-height: 60vh; 
     padding-top: 90px; 
+}
+
+/* Efek memudar ke warna section Tentang (hijau tua) */
+.hero::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 420px;
+    background: linear-gradient(
+        to bottom,
+        rgba(20, 41, 28, 0) 0%,
+        rgba(20, 41, 28, 0.35) 35%,
+        rgba(20, 41, 28, 0.75) 70%,
+        var(--g900) 100%
+    );
+    pointer-events: none;
+}
+
+/* Konten hero tetap di atas gradient */
+.hero .container {
+    position: relative;
+    z-index: 1;
+}
+
+/* ---------- Tentang (hijau gelap, menyatu dengan hero) ---------- */
+#tentang, #flora, #fauna {
+    background: var(--g900);
+    color: #e6ede1;
+    margin-top: -1px;          /* hindari garis tipis antara hero dan section */
+}
+
+#tentang h2, #flora h2, #fauna h2 {
+    color: #fff;
+}
+
+#tentang p, #flora > .container > div > p, #fauna > .container > div > p {
+    color: #d3dfcd;
+}
+
+/* ---------- Section gelap tambahan (Fakta, Konservasi, Taman, FAQ, Footer) ---------- */
+.section-dark {
+    background: var(--g900);
+    color: #e6ede1;
+}
+
+.section-dark h2 {
+    color: #fff;
+}
+
+.section-dark .section-intro {
+    color: #d3dfcd;
+}
+
+.stat-number {
+    font-size: 2.6rem;
+    font-weight: 600;
+    line-height: 1.2;
+    color: var(--sand);
+}
+
+.icon-circle {
+    width: 64px;
+    height: 64px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-size: 1.6rem;
+    background: var(--g100);
+    color: var(--g700);
+}
+
+#faq .accordion {
+    --bs-accordion-bg: var(--g800);
+    --bs-accordion-btn-bg: var(--g800);
+    --bs-accordion-active-bg: var(--g700);
+    --bs-accordion-active-color: #fff;
+    --bs-accordion-border-color: rgba(255, 255, 255, .12);
+}
+
+/* ---------- Kartu Flora & Fauna ---------- */
+.card-species {
+    background: #f7f7ef;
+    border-radius: 16px;
+    overflow: hidden;
+    transition: transform .3s ease, box-shadow .3s ease;
+}
+
+.card-species:hover {
+    transform: translateY(-6px);
+}
+
+.card-species .card-title {
+    color: var(--g700);
+    font-weight: 600;
+}
+
+/* ---------- Tablet ---------- */
+@media (max-width: 991px) {
+    .hero {
+        min-height: 90vh;
+        padding: 110px 0 140px;
+    }
+
+    .hero h1 {
+        font-size: 2.6rem;
+    }
+
+    .hero .lead {
+        font-size: 1.05rem;
+    }
+
+    .hero::after {
+        height: 320px;
+    }
+
+    #tentang {
+        padding-top: 3rem !important;
+        padding-bottom: 4rem !important;
+    }
+
+    #tentang h2 {
+        font-size: 1.8rem;
+        text-align: center;
+    }
+
+    #tentang p {
+        text-align: justify;
+    }
+
+    #tentang img {
+        max-width: 85%;
+        display: block;
+        margin: 0 auto;
+    }
+}
+
+/* ---------- Mobile ---------- */
+@media (max-width: 575px) {
+    .navbar-custom {
+        padding: .7rem 0;
+    }
+
+    .navbar-custom .navbar-brand {
+        font-size: 1.25rem;
+    }
+
+    .hero {
+        min-height: 85vh;
+        padding: 100px 0 120px;
+    }
+
+    .hero h1 {
+        font-size: 1.8rem;
+        line-height: 1.3;
+    }
+
+    .hero .lead {
+        font-size: .95rem;
+        line-height: 1.6;
+        margin-top: 1rem !important;
+        margin-bottom: 1.5rem !important;
+    }
+
+    /* tombol tersusun vertikal & selebar layar */
+    .hero .btn {
+        display: block;
+        width: 100%;
+        max-width: 280px;
+        margin: 0 auto .75rem !important;
+        font-size: 1rem;
+        padding: .6rem 1rem;
+    }
+
+    .hero::after {
+        height: 220px;
+    }
+
+    #tentang {
+        padding-top: 2rem !important;
+        padding-bottom: 3rem !important;
+    }
+
+    #tentang h2 {
+        font-size: 1.5rem;
+        margin-bottom: 1rem !important;
+    }
+
+    #tentang p {
+        font-size: .95rem;
+        text-align: left;
+    }
+
+    #tentang img {
+        max-width: 100%;
+    }
+}
+
+/* ---------- Kartu Flora & Fauna versi HP: 4 kartu sebaris, ukuran kecil ---------- */
+@media (max-width: 575px) {
+    #flora .card-species,
+    #fauna .card-species {
+        border-radius: 10px;
+    }
+
+    #flora .card-body,
+    #fauna .card-body {
+        padding: .45rem .35rem;
+    }
+
+    #flora .card-title,
+    #fauna .card-title {
+        font-size: .7rem;
+        line-height: 1.25;
+    }
+
+    #flora .card small,
+    #fauna .card small {
+        font-size: .55rem;
+        line-height: 1.2;
+        display: block;
+    }
+
+    /* deskripsi disembunyikan karena kartu terlalu sempit */
+    #flora .card-text,
+    #fauna .card-text {
+        display: none;
+    }
 }
