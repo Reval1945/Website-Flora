@@ -21,6 +21,32 @@ main {
   width: 100%;
 }
 
+
+/* Kondisi awal: elemen belum muncul */
+.scroll-effect {
+  opacity: 0;
+  transform: translateY(40px) scale(0.96);
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s ease;
+}
+
+/* Kondisi saat halaman masuk layar */
+.scroll-effect.show {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* Efek tambahan untuk kartu fauna */
+.fauna-card.scroll-effect.show {
+  transition:
+    opacity 0.7s ease,
+    transform 0.7s ease,
+    box-shadow 0.7s ease;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+
 /* BASE PAGE STYLING */
 .page {
   width: 100%;
@@ -77,22 +103,24 @@ nav a:hover {
 STYLING JUDUL DAN PARAGRAF
 ==================*/
 
-#judul {
-  opacity: 0;
-  animation: turun 2s ease-out forwards;
+
+#rolling-title {
+  font-family: "DM Serif Display", serif;
+  font-size: clamp(32px, 5vw, 60px);
+  line-height: 1.2;
+  color: white;
+  text-align: center;
+
+  overflow: hidden;
+  overflow-wrap: break-word;
 }
 
-@keyframes turun {
-  from {
-    opacity: 0;
-    transform: translateY(-60px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.rolling-char {
+  display: inline-block;
+  white-space: pre;
+  will-change: transform;
 }
+
 
 /* =========================================
    PAGE 1 - WELCOME

@@ -1,3 +1,62 @@
+//ROLING LATTERS : BAGIAN JUDUL
+
+
+const rollingTitle = document.getElementById("rolling-title");
+
+if (rollingTitle && window.gsap) {
+    const text = rollingTitle.textContent.trim();
+    rollingTitle.textContent = "";
+
+    const letters = [...text].map(function (char) {
+        const span = document.createElement("span");
+
+        span.className = "rolling-char";
+        span.textContent = char === " " ? "\u00A0" : char;
+
+        rollingTitle.appendChild(span);
+        return span;
+    });
+
+    // Siapkan animasi tanpa langsung memutarnya
+    gsap.set(letters, {
+        yPercent: 150
+    });
+
+    const titleObserver = new IntersectionObserver(
+        function (entries) {
+            entries.forEach(function (entry) {
+                if (entry.isIntersecting) {
+                    // Jalankan efek ketika judul masuk layar
+                    gsap.fromTo(
+                        letters,
+                        { yPercent: 150 },
+                        {
+                            yPercent: 0,
+                            duration: 0.7,
+                            stagger: {
+                                each: 0.045,
+                                from: "center"
+                            },
+                            ease: "back.out(1.7)",
+                            overwrite: true
+                        }
+                    );
+                } else {
+                    // Sembunyikan huruf agar siap dianimasikan ulang
+                    gsap.set(letters, {
+                        yPercent: 150
+                    });
+                }
+            });
+        },
+        {
+            threshold: 0.5
+        }
+    );
+
+    titleObserver.observe(rollingTitle);
+}
+
 
 /* =========================================
    1. FUNGSI TOMBOL MULAI JELAJAHI
@@ -30,7 +89,6 @@ const typing = document.getElementById('typing');
 
 // Variabel untuk menghitung karakter yang sedang ditampilkan
 let index = 0;
-
 // Fungsi untuk menampilkan teks satu karakter demi satu karakter
 function ketik() {
     if (typing && index < text.length) {
@@ -48,6 +106,11 @@ function ketik() {
 
 // Menjalankan efek typing
 ketik();
+
+
+
+
+
 
 
 /* =========================================
@@ -133,5 +196,29 @@ document.addEventListener("DOMContentLoaded", function () {
             document.body.style.overflow = "";
         }
     });
+});
+
+
+const observer = new IntersectionObserver(
+    function (entries) {
+        entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("show");
+            } else {
+                entry.target.classList.remove("show");
+            }
+        });
+    },
+    {
+        threshold: 0.3
+    }
+);
+
+// Pilih elemen yang ingin diberi efek
+document.querySelectorAll(
+    ".page h1, .page h2, .page p, .fauna-card, .video-container"
+).forEach(function (element) {
+    element.classList.add("scroll-effect");
+    observer.observe(element);
 });
 
