@@ -1,106 +1,445 @@
 <!doctype html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Website Flora Dan Fauna</title>
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
-    <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-      rel="stylesheet"
-    />
-    <link
-      href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@400;500;600&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet"/>
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet"/>
     <link href="css/style.css" rel="stylesheet" />
-  </head>
-  <body>
+</head>
+<body data-bs-spy="scroll" data-bs-target="#navbar" data-bs-root-margin="0px 0px -40%" data-bs-smooth-scroll="true" tabindex="0">
     <nav id="navbar" class="navbar navbar-expand-lg navbar-custom fixed-top">
-      <div class="container">
-        <a class="navbar-brand" href="index.html"
-          ><i class="fa-solid fa-leaf me-2"></i>FloraFauna</a
-        >
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#menu"
-          aria-label="Menu"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="menu">
-          <ul class="navbar-nav ms-auto">
-            <li class="nav-item">
-              <a class="nav-link active" href="index.html">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="flora.html">Flora</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="html/fauna.html">Fauna</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="index.html#tentang">Tentang</a>
-            </li>
-          </ul>
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <i class="fa-solid fa-leaf me-2"></i>FloraFauna
+            </a>
+
+            <button
+                class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#menu"
+                aria-label="Menu"
+            >
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="menu">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#home">Home</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#tentang">Tentang</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#flora">Flora</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#fauna">Fauna</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#fakta">Fakta</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#konservasi">Konservasi</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#taman">Taman</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#faq">FAQ</a>
+                    </li>
+                </ul>
+            </div>
         </div>
-      </div>
     </nav>
 
-    <header class="hero" style="--bg: url(&quot;../assets/hero.jpg&quot;)">
-      <div class="container text-center">
-        <h1 class="display-3 fw-bold" data-aos="fade-down">
-          Jelajahi Kekayaan Flora &amp; Fauna Indonesia
-        </h1>
-        <p
-          class="lead mx-auto my-4"
-          style="max-width: 660px"
-          data-aos="fade-up"
-          data-aos-delay="200"
-        >
-          Indonesia adalah salah satu negara megabiodiversitas dunia, dengan
-          hutan tropis, ribuan pulau, dan makhluk hidup yang tidak ditemukan di
-          tempat lain.
-        </p>
-        <div data-aos="zoom-in" data-aos-delay="400">
-          <a href="flora.html" class="btn btn-outline-light btn-lg me-2 mb-2"
-            ><i class="fa-solid fa-seedling me-2"></i>Jelajahi Flora</a
-          >
-          <a href="html/fauna.html" class="btn btn-outline-light btn-lg mb-2"
-            ><i class="fa-solid fa-paw me-2"></i>Jelajahi Fauna</a
-          >
+    <header id="home" class="hero" style="--bg: url(&quot;../assets/hero.jpg&quot;)">
+        <div class="container text-center">
+            <h1 class="display-3 fw-bold" data-aos="fade-down">
+                Jelajahi Kekayaan Flora &amp; Fauna Indonesia
+            </h1>
+
+            <p
+                class="lead mx-auto my-4"
+                style="max-width: 660px"
+                data-aos="fade-up"
+                data-aos-delay="200"
+            >
+                Indonesia adalah salah satu negara megabiodiversitas dunia, dengan
+                hutan tropis, ribuan pulau, dan makhluk hidup yang tidak ditemukan di
+                tempat lain.
+            </p>
+
+            <div data-aos="zoom-in" data-aos-delay="400">
+                <a
+                    href="./html/flora.html"
+                    class="btn btn-outline-light btn-lg me-2 mb-2"
+                >
+                    <i class="fa-solid fa-seedling me-2"></i>Jelajahi Flora
+                </a>
+
+                <a
+                    href="./html/fauna.html"
+                    class="btn btn-outline-light btn-lg mb-2"
+                >
+                    <i class="fa-solid fa-paw me-2"></i>Jelajahi Fauna
+                </a>
+            </div>
         </div>
-      </div>
     </header>
 
     <section id="tentang" class="py-5">
         <div class="container">
             <div class="row align-items-center">
-                <div class="col-md-6 mb-4 mb-md-0" data-aos="fade-right">
-                    <img src="assets/tentang.jpg" alt="Tentang Flora & Fauna" class="img-fluid rounded shadow">
+                <div
+                    class="col-md-6 mb-4 mb-md-0"
+                    data-aos="fade-right"
+                >
+                    <img
+                        src="assets/tentang.jpg"
+                        alt="Tentang Flora & Fauna"
+                        class="img-fluid rounded shadow"
+                    />
                 </div>
+
                 <div class="col-md-6" data-aos="fade-left">
                     <h2 class="mb-4">Tentang Flora & Fauna Indonesia</h2>
-                    <p>Indonesia memiliki kekayaan flora dan fauna yang luar biasa, dengan banyak spesies endemik yang hanya ditemukan di wilayah ini. Hutan tropis, pegunungan, dan pulau-pulau yang tersebar di seluruh nusantara menyediakan habitat bagi berbagai jenis tumbuhan dan hewan.</p>
-                    <p>Namun, banyak spesies menghadapi ancaman dari deforestasi, perburuan liar, dan perubahan iklim. Upaya konservasi sangat penting untuk melindungi keanekaragaman hayati ini agar tetap lestari untuk generasi mendatang.</p>
+
+                    <p>
+                        Indonesia memiliki kekayaan flora dan fauna yang luar biasa,
+                        dengan banyak spesies endemik yang hanya ditemukan di wilayah ini.
+                        Hutan tropis, pegunungan, dan pulau-pulau yang tersebar di seluruh
+                        nusantara menyediakan habitat bagi berbagai jenis tumbuhan dan hewan.
+                    </p>
+
+                    <p>
+                        Namun, banyak spesies menghadapi ancaman dari deforestasi, perburuan
+                        liar, dan perubahan iklim. Upaya konservasi sangat penting untuk
+                        melindungi keanekaragaman hayati ini agar tetap lestari untuk
+                        generasi mendatang.
+                    </p>
                 </div>
             </div>
         </div>
     </section>
 
-    
+
+    <section id="flora" class="py-5">
+        <div class="container py-4">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <h2 class="text-white"><i class="fa-solid fa-seedling me-2"></i>Flora Indonesia</h2>
+                <p class="mx-auto" style="max-width: 560px">Dari bunga raksasa hingga anggrek yang anggun, inilah sebagian tumbuhan khas nusantara.</p>
+            </div>
+
+            <div class="row row-cols-4 g-2 g-md-4">
+                <div class="col" data-aos="fade-up" data-aos-delay="0">
+                    <div class="card card-species h-100 border-0 shadow">
+                        <div class="ratio ratio-4x3">
+                            <img src="assets/flora-rafflesia.jpg" alt="Rafflesia Arnoldii" class="card-img-top object-fit-cover" />
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title mb-0">Rafflesia Arnoldii</h5>
+                            <small class="fst-italic text-muted">Rafflesia arnoldii</small>
+                            <p class="card-text mt-2 mb-0">Bunga terbesar di dunia dengan diameter hingga 1 meter. Tumbuh sebagai parasit di hutan Sumatra, tanpa daun, batang, maupun akar.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col" data-aos="fade-up" data-aos-delay="150">
+                    <div class="card card-species h-100 border-0 shadow">
+                        <div class="ratio ratio-4x3">
+                            <img src="assets/flora-anggrek.jpg" alt="Anggrek Bulan" class="card-img-top object-fit-cover" />
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title mb-0">Anggrek Bulan</h5>
+                            <small class="fst-italic text-muted">Phalaenopsis amabilis</small>
+                            <p class="card-text mt-2 mb-0">Puspa pesona Indonesia dengan kelopak putih anggun. Mampu berbunga berbulan-bulan dan tersebar dari Sumatra hingga Papua.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col" data-aos="fade-up" data-aos-delay="300">
+                    <div class="card card-species h-100 border-0 shadow">
+                        <div class="ratio ratio-4x3">
+                            <img src="assets/flora-bangkai.jpg" alt="Bunga Bangkai" class="card-img-top object-fit-cover" />
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title mb-0">Bunga Bangkai</h5>
+                            <small class="fst-italic text-muted">Amorphophallus titanum</small>
+                            <p class="card-text mt-2 mb-0">Bunga majemuk tertinggi di dunia, bisa mencapai 3 meter. Khas Sumatra dan dikenal dengan aromanya yang menyengat.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col" data-aos="fade-up" data-aos-delay="300">
+                    <div class="card card-species h-100 border-0 shadow">
+                        <div class="ratio ratio-4x3">
+                            <img src="assets/flora-bangkai.jpg" alt="Bunga Bangkai" class="card-img-top object-fit-cover" />
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title mb-0">Bunga Bangkai</h5>
+                            <small class="fst-italic text-muted">Amorphophallus titanum</small>
+                            <p class="card-text mt-2 mb-0">Bunga majemuk tertinggi di dunia, bisa mencapai 3 meter. Khas Sumatra dan dikenal dengan aromanya yang menyengat.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-5" data-aos="zoom-in">
+                <a href="./html/flora.html" class="btn btn-outline-light btn-lg">Lihat Semua Flora <i class="fa-solid fa-arrow-right ms-2"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <section id="fauna" class="py-5">
+        <div class="container py-4">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <h2 class="text-white"><i class="fa-solid fa-paw me-2"></i>Fauna Indonesia</h2>
+                <p class="mx-auto" style="max-width: 560px">Satwa langka dan endemik yang menjadi kebanggaan sekaligus tanggung jawab kita untuk menjaganya.</p>
+            </div>
+
+            <div class="row row-cols-4 g-2 g-md-4">
+                <div class="col" data-aos="fade-up" data-aos-delay="0">
+                    <div class="card card-species h-100 border-0 shadow">
+                        <div class="ratio ratio-4x3">
+                            <img src="assets/fauna-orangutan.jpg" alt="Orangutan" class="card-img-top object-fit-cover" />
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title mb-0">Orangutan</h5>
+                            <small class="fst-italic text-muted">Pongo pygmaeus</small>
+                            <p class="card-text mt-2 mb-0">Kera besar cerdas penghuni hutan Kalimantan dan Sumatra. Menghabiskan sebagian besar hidupnya di atas pohon.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col" data-aos="fade-up" data-aos-delay="150">
+                    <div class="card card-species h-100 border-0 shadow">
+                        <div class="ratio ratio-4x3">
+                            <img src="assets/fauna-komodo.jpg" alt="Komodo" class="card-img-top object-fit-cover" />
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title mb-0">Komodo</h5>
+                            <small class="fst-italic text-muted">Varanus komodoensis</small>
+                            <p class="card-text mt-2 mb-0">Kadal terbesar di dunia yang hanya hidup di Pulau Komodo dan sekitarnya di Nusa Tenggara Timur.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col" data-aos="fade-up" data-aos-delay="300">
+                    <div class="card card-species h-100 border-0 shadow">
+                        <div class="ratio ratio-4x3">
+                            <img src="assets/fauna-harimau.jpg" alt="Harimau Sumatra" class="card-img-top object-fit-cover" />
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title mb-0">Harimau Sumatra</h5>
+                            <small class="fst-italic text-muted">Panthera tigris sumatrae</small>
+                            <p class="card-text mt-2 mb-0">Subspesies harimau terakhir di Indonesia. Berstatus sangat terancam punah akibat hilangnya habitat dan perburuan.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col" data-aos="fade-up" data-aos-delay="300">
+                    <div class="card card-species h-100 border-0 shadow">
+                        <div class="ratio ratio-4x3">
+                            <img src="assets/fauna-harimau.jpg" alt="Harimau Sumatra" class="card-img-top object-fit-cover" />
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title mb-0">Harimau Sumatra</h5>
+                            <small class="fst-italic text-muted">Panthera tigris sumatrae</small>
+                            <p class="card-text mt-2 mb-0">Subspesies harimau terakhir di Indonesia. Berstatus sangat terancam punah akibat hilangnya habitat dan perburuan.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-5" data-aos="zoom-in">
+                <a href="./html/fauna.html" class="btn btn-outline-light btn-lg">Lihat Semua Fauna <i class="fa-solid fa-arrow-right ms-2"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <section id="fakta" class="section-dark py-5">
+        <div class="container py-4">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <h2><i class="fa-solid fa-chart-simple me-2"></i>Indonesia dalam Angka</h2>
+                <p class="section-intro mx-auto" style="max-width: 560px">Wilayah yang luasnya hanya sebagian kecil permukaan bumi, tetapi menyimpan keanekaragaman hayati luar biasa.</p>
+            </div>
+
+            <div class="row row-cols-2 row-cols-md-4 g-4 text-center">
+                <div class="col" data-aos="zoom-in" data-aos-delay="0">
+                    <div class="stat-number">±17.000</div>
+                    <p class="mb-0">Pulau di seluruh nusantara</p>
+                </div>
+                <div class="col" data-aos="zoom-in" data-aos-delay="150">
+                    <div class="stat-number">±10%</div>
+                    <p class="mb-0">Tumbuhan berbunga dunia</p>
+                </div>
+                <div class="col" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="stat-number">±12%</div>
+                    <p class="mb-0">Spesies mamalia dunia</p>
+                </div>
+                <div class="col" data-aos="zoom-in" data-aos-delay="450">
+                    <div class="stat-number">±17%</div>
+                    <p class="mb-0">Spesies burung dunia</p>
+                </div>
+            </div>
+            <p class="text-center small mt-4 mb-0 opacity-75">*Angka berupa perkiraan dan dapat berbeda antar sumber.</p>
+        </div>
+    </section>
+
+    <section id="konservasi" class="section-dark py-5">
+        <div class="container py-4">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <h2><i class="fa-solid fa-shield-heart me-2"></i>Ancaman &amp; Upaya Konservasi</h2>
+                <p class="section-intro mx-auto" style="max-width: 560px">Keanekaragaman hayati kita menghadapi tekanan nyata, namun banyak langkah yang sedang dan bisa dilakukan.</p>
+            </div>
+
+            <div class="row row-cols-1 row-cols-md-3 g-4">
+                <div class="col" data-aos="fade-up" data-aos-delay="0">
+                    <div class="card card-species h-100 border-0 shadow text-center p-3">
+                        <div class="card-body">
+                            <div class="icon-circle mb-3"><i class="fa-solid fa-fire"></i></div>
+                            <h5 class="card-title">Deforestasi</h5>
+                            <p class="card-text mb-0">Hutan dibuka untuk perkebunan, tambang, dan permukiman sehingga habitat satwa terus menyempit.</p>
+                            <p class="card-text small mt-2 mb-0"><strong>Upaya:</strong> reboisasi, perlindungan hutan, dan pengelolaan lahan yang berkelanjutan.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col" data-aos="fade-up" data-aos-delay="150">
+                    <div class="card card-species h-100 border-0 shadow text-center p-3">
+                        <div class="card-body">
+                            <div class="icon-circle mb-3"><i class="fa-solid fa-ban"></i></div>
+                            <h5 class="card-title">Perburuan Liar</h5>
+                            <p class="card-text mb-0">Perburuan dan perdagangan ilegal mendorong banyak satwa langka mendekati kepunahan.</p>
+                            <p class="card-text small mt-2 mb-0"><strong>Upaya:</strong> patroli kawasan konservasi, penegakan hukum, dan rehabilitasi satwa sitaan.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col" data-aos="fade-up" data-aos-delay="300">
+                    <div class="card card-species h-100 border-0 shadow text-center p-3">
+                        <div class="card-body">
+                            <div class="icon-circle mb-3"><i class="fa-solid fa-temperature-high"></i></div>
+                            <h5 class="card-title">Perubahan Iklim</h5>
+                            <p class="card-text mb-0">Naiknya suhu dan perubahan cuaca mengganggu pola hidup tumbuhan dan hewan, termasuk terumbu karang.</p>
+                            <p class="card-text small mt-2 mb-0"><strong>Upaya:</strong> menurunkan emisi, memulihkan mangrove, dan menjaga ekosistem pesisir.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="taman" class="section-dark py-5">
+        <div class="container py-4">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <h2><i class="fa-solid fa-map-location-dot me-2"></i>Taman Nasional</h2>
+                <p class="section-intro mx-auto" style="max-width: 560px">Kawasan lindung tempat flora dan fauna Indonesia dijaga tetap lestari.</p>
+            </div>
+
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-4">
+                <div class="col" data-aos="fade-up" data-aos-delay="0">
+                    <div class="card card-species h-100 border-0 shadow text-center p-3">
+                        <div class="card-body">
+                            <div class="icon-circle mb-3"><i class="fa-solid fa-dragon"></i></div>
+                            <h5 class="card-title">TN Komodo</h5>
+                            <p class="card-text mb-0">Nusa Tenggara Timur. Rumah komodo dan termasuk Situs Warisan Dunia UNESCO.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col" data-aos="fade-up" data-aos-delay="150">
+                    <div class="card card-species h-100 border-0 shadow text-center p-3">
+                        <div class="card-body">
+                            <div class="icon-circle mb-3"><i class="fa-solid fa-tree"></i></div>
+                            <h5 class="card-title">TN Ujung Kulon</h5>
+                            <p class="card-text mb-0">Banten. Benteng terakhir badak Jawa yang sangat langka.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col" data-aos="fade-up" data-aos-delay="300">
+                    <div class="card card-species h-100 border-0 shadow text-center p-3">
+                        <div class="card-body">
+                            <div class="icon-circle mb-3"><i class="fa-solid fa-mountain"></i></div>
+                            <h5 class="card-title">TN Gunung Leuser</h5>
+                            <p class="card-text mb-0">Aceh dan Sumatra Utara. Habitat orangutan, harimau, gajah, dan badak Sumatra.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col" data-aos="fade-up" data-aos-delay="450">
+                    <div class="card card-species h-100 border-0 shadow text-center p-3">
+                        <div class="card-body">
+                            <div class="icon-circle mb-3"><i class="fa-solid fa-mountain-sun"></i></div>
+                            <h5 class="card-title">TN Lorentz</h5>
+                            <p class="card-text mb-0">Papua. Kawasan lindung terluas di Asia Tenggara dengan ekosistem dari pantai hingga salju.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="faq" class="section-dark py-5">
+        <div class="container py-4">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <h2><i class="fa-solid fa-circle-question me-2"></i>Pertanyaan Umum</h2>
+                <p class="section-intro mx-auto" style="max-width: 560px">Beberapa hal yang sering ditanyakan seputar flora dan fauna Indonesia.</p>
+            </div>
+
+            <div class="accordion mx-auto" id="faqList" data-bs-theme="dark" style="max-width: 720px" data-aos="fade-up">
+                <div class="accordion-item">
+                    <h3 class="accordion-header">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1" aria-expanded="true" aria-controls="faq1">Apa itu spesies endemik?</button>
+                    </h3>
+                    <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqList">
+                        <div class="accordion-body">Spesies endemik adalah makhluk hidup yang secara alami hanya ditemukan di satu wilayah tertentu dan tidak ada di tempat lain di dunia. Komodo, misalnya, hanya hidup di beberapa pulau di Nusa Tenggara Timur.</div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h3 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2" aria-expanded="false" aria-controls="faq2">Mengapa Indonesia disebut megabiodiversitas?</button>
+                    </h3>
+                    <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqList">
+                        <div class="accordion-body">Karena Indonesia berada di wilayah tropis dengan ribuan pulau, serta terletak di pertemuan dua kawasan biogeografi, yaitu Asia dan Australasia. Kondisi ini menghasilkan beragam habitat dan jenis makhluk hidup.</div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h3 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3" aria-expanded="false" aria-controls="faq3">Bagaimana cara membantu pelestarian?</button>
+                    </h3>
+                    <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqList">
+                        <div class="accordion-body">Mulailah dari hal sederhana: kurangi sampah plastik, hemat kertas, pilih produk berkelanjutan, ikut menanam pohon, dan dukung organisasi konservasi yang terpercaya.</div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h3 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4" aria-expanded="false" aria-controls="faq4">Bolehkah memelihara satwa langka?</button>
+                    </h3>
+                    <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqList">
+                        <div class="accordion-body">Tidak. Satwa yang dilindungi dilarang ditangkap, dipelihara, maupun diperdagangkan menurut undang-undang konservasi sumber daya alam hayati dan ekosistemnya.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="section-dark border-top border-light border-opacity-10 py-4">
+        <div class="container text-center">
+            <a class="navbar-brand fw-bold" href="#home"><i class="fa-solid fa-leaf me-2"></i>FloraFauna</a>
+            <p class="small mt-2 mb-0 opacity-75">&copy; 2026 FloraFauna. Mengenalkan dan menjaga kekayaan hayati Indonesia.</p>
+        </div>
+    </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
     <script src="js/script.js"></script>
-  </body>
+
+</body>
+
 </html>
