@@ -8,11 +8,12 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
-    <link href="../css/style.css" rel="stylesheet">
     <link href="../css/flora.css" rel="stylesheet">
 </head>
-<body>
-    <!-- ================= NAVBAR ================= -->
+<!-- Scroll spy bawaan Bootstrap: menu di #navbar otomatis aktif sesuai bagian yang dilihat -->
+<body data-bs-spy="scroll" data-bs-target="#navbar" data-bs-root-margin="-120px 0px -60% 0px" tabindex="0">
+
+    <!-- 1. NAVBAR -->
     <nav id="navbar" class="navbar navbar-expand-lg navbar-custom fixed-top">
         <div class="container">
             <a class="navbar-brand" href="../index.html"><i class="fa-solid fa-leaf me-2"></i>FloraFauna</a>
@@ -23,123 +24,869 @@
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item"><a class="nav-link" href="../index.html">Home</a></li>
                     <li class="nav-item"><a class="nav-link active" href="flora.html">Flora</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#unik">Unik</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#bunga">Bunga</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#pohon">Pohon</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#rempah">Rempah</a></li>
                     <li class="nav-item"><a class="nav-link" href="fauna.html">Fauna</a></li>
-                    <li class="nav-item"><a class="nav-link" href="../index.html#tentang">Tentang</a></li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <!-- ================= HERO ================= -->
+    <!-- 2. HERO -->
     <header class="hero page-hero" style="--bg: url('../assets/hero.jpg')">
         <div class="container text-center">
             <h1 class="display-3 fw-bold" data-aos="fade-down">Jelajahi Kekayaan Flora Indonesia</h1>
             <p class="lead mx-auto my-4" style="max-width: 620px" data-aos="fade-up" data-aos-delay="200">
-                Klik salah satu kartu untuk melihat foto, penjelasan lengkap, dan video tentang tumbuhan khas nusantara.
+                Klik kartu untuk melihat penjelasan singkat tentang tumbuhan khas nusantara.
             </p>
             <div class="d-flex flex-wrap justify-content-center gap-2" data-aos="zoom-in" data-aos-delay="400">
-                <span class="fl-pill"><i class="fa-solid fa-seedling me-2"></i><span id="totalFlora">0</span> jenis flora</span>
+                <span class="fl-pill"><i class="fa-solid fa-seedling me-2"></i>16 jenis flora</span>
                 <span class="fl-pill"><i class="fa-solid fa-layer-group me-2"></i>4 kategori</span>
-                <span class="fl-pill"><i class="fa-brands fa-youtube me-2"></i>Dilengkapi video</span>
             </div>
         </div>
     </header>
 
-    <!-- ================= DAFTAR FLORA ================= -->
-    <section id="daftar" class="section-dark py-5">
-        <div class="container pb-4">
-
-            <div class="text-center mb-4">
-                <h2 class="fl-judul">Koleksi Flora Nusantara</h2>
-                <p class="section-intro mx-auto mb-0" style="max-width: 560px">
-                    Cari berdasarkan nama atau pilih kategori untuk menemukan tumbuhan yang ingin kamu kenali.
-                </p>
-            </div>
-
-            <!-- Pencarian -->
-            <div class="row justify-content-center mb-3">
-                <div class="col-md-6 col-lg-4">
-                    <div class="input-group">
-                        <span class="input-group-text rounded-start-pill ps-3"><i class="fa-solid fa-magnifying-glass"></i></span>
-                        <input id="cari" type="search" class="form-control rounded-end-pill" placeholder="Cari nama flora..." aria-label="Cari flora">
-                    </div>
-                </div>
-            </div>
-
-            <!-- Filter kategori -->
-            <div id="filter" class="d-flex flex-wrap justify-content-center gap-2 mb-3">
-                <button type="button" class="btn btn-outline-light btn-sm rounded-pill px-3 active" data-kategori="semua">Semua</button>
-                <button type="button" class="btn btn-outline-light btn-sm rounded-pill px-3" data-kategori="unik">Tumbuhan Unik</button>
-                <button type="button" class="btn btn-outline-light btn-sm rounded-pill px-3" data-kategori="bunga">Bunga</button>
-                <button type="button" class="btn btn-outline-light btn-sm rounded-pill px-3" data-kategori="pohon">Pohon</button>
-                <button type="button" class="btn btn-outline-light btn-sm rounded-pill px-3" data-kategori="rempah">Rempah &amp; Obat</button>
-            </div>
-
-            <p id="jumlah" class="text-center small opacity-75 mb-4"></p>
-
-            <!-- Kartu diisi otomatis oleh js/flora.js -->
-            <div id="gridFlora" class="row row-cols-2 row-cols-md-3 row-cols-lg-4 g-3 g-md-4"></div>
-
-            <p id="kosong" class="text-center d-none mt-4"><i class="fa-regular fa-face-frown me-2"></i>Flora yang kamu cari tidak ditemukan.</p>
+    <!-- 3. TENTANG -->
+    <section id="tentang" class="py-5">
+        <div class="container text-center pb-4">
+            <h2 class="fl-judul">Tentang Flora Indonesia</h2>
+            <p class="mx-auto" style="max-width: 640px">
+                Indonesia punya keanekaragaman tumbuhan yang sangat besar. Banyak di antaranya
+                tidak ditemukan di negara lain. Kenali beberapa di bawah ini.
+            </p>
         </div>
     </section>
 
-    <!-- ================= MODAL DETAIL (satu modal dipakai semua kartu) ================= -->
-    <div class="modal fade" id="detailModal" tabindex="-1" aria-labelledby="modalNama" aria-hidden="true">
-        <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
-            <div class="modal-content fl-modal">
-                <button type="button" class="btn-close btn-close-white fl-close" data-bs-dismiss="modal" aria-label="Tutup"></button>
+    <section id="cari" class="section-dark pb-5">
+        <div class="container text-center" style="max-width: 560px">
+            <h2 class="fl-judul">Cari Flora</h2>
+            <form id="formCari" class="input-group">
+                <input type="text" id="inputCari" class="form-control" placeholder="Contoh: anggrek, pala, mangrove" aria-label="Cari flora">
+                <button class="btn btn-warning" type="submit"><i class="fa-solid fa-magnifying-glass me-1"></i>Cari</button>
+            </form>
+            <div id="pesanCari" class="mt-3" role="status"></div>
+        </div>
+    </section>
 
-                <div class="modal-body p-0">
-                    <!-- Banner foto -->
-                    <div class="fl-banner">
-                        <img id="modalFoto" src="" alt="">
-                        <div class="fl-banner-text">
-                            <span id="modalKategori" class="fl-chip"></span>
-                            <h3 id="modalNama" class="mt-2 mb-0"></h3>
-                            <em id="modalLatin"></em>
+    <section id="unik" class="section-dark py-5 border-top border-light border-opacity-10">
+        <div class="container pb-4">
+            <div class="text-center mb-4">
+                <h2 class="fl-judul">Tumbuhan Unik</h2>
+                <p class="section-intro mx-auto mb-0" style="max-width: 560px">Tumbuhan dengan bentuk yang tidak biasa.</p>
+            </div>
+            <div class="row row-cols-2 row-cols-md-3 row-cols-lg-4 g-3 g-md-4">
+                <div class="col">
+                    <a href="#detail-rafflesia" class="fl-card" data-bs-toggle="modal" data-bs-target="#detail-rafflesia">
+                        <img src="../assets/Raflesia.jpg" alt="Rafflesia Arnoldii" loading="lazy" onerror="this.remove()">
+                        <span class="fl-chip">Tumbuhan Unik</span>
+                        <div class="fl-info">
+                            <h5>Rafflesia Arnoldii</h5>
+                            <small>Rafflesia arnoldii</small>
+                            <span class="fl-more">Lihat detail <i class="fa-solid fa-arrow-right"></i></span>
                         </div>
-                    </div>
-
-                    <div class="p-4">
-                        <p id="modalDesc" class="mb-4"></p>
-
-                        <div class="row g-3 mb-4">
-                            <div class="col-md-6">
-                                <div class="fl-box">
-                                    <i class="fa-solid fa-location-dot"></i>
-                                    <div>
-                                        <small>Habitat</small>
-                                        <p id="modalHabitat" class="mb-0"></p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="fl-box">
-                                    <i class="fa-solid fa-lightbulb"></i>
-                                    <div>
-                                        <small>Tahukah kamu?</small>
-                                        <p id="modalFakta" class="mb-0"></p>
-                                    </div>
-                                </div>
-                            </div>
+                    </a>
+                </div>
+                <div class="col">
+                    <a href="#detail-bangkai" class="fl-card" data-bs-toggle="modal" data-bs-target="#detail-bangkai">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSp8dovsUtBbEoWiMqivmRvnIWMc2qIykz48xbtI2_lP4HIS73gy7B_4JF4&s=10" alt="Bunga Bangkai" loading="lazy" onerror="this.remove()">
+                        <span class="fl-chip">Tumbuhan Unik</span>
+                        <div class="fl-info">
+                            <h5>Bunga Bangkai</h5>
+                            <small>Amorphophallus titanum</small>
+                            <span class="fl-more">Lihat detail <i class="fa-solid fa-arrow-right"></i></span>
                         </div>
-
-                        <h6 class="mb-3"><i class="fa-brands fa-youtube text-danger me-2"></i>Tonton videonya</h6>
-                        <div id="modalVideo"></div>
-                    </div>
+                    </a>
+                </div>
+                <div class="col">
+                    <a href="#detail-kantong-semar" class="fl-card" data-bs-toggle="modal" data-bs-target="#detail-kantong-semar">
+                        <img src="../assets/kantong.jpg" alt="Kantong Semar" loading="lazy" onerror="this.remove()">
+                        <span class="fl-chip">Tumbuhan Unik</span>
+                        <div class="fl-info">
+                            <h5>Kantong Semar</h5>
+                            <small>Nepenthes spp.</small>
+                            <span class="fl-more">Lihat detail <i class="fa-solid fa-arrow-right"></i></span>
+                        </div>
+                    </a>
+                </div>
+                <div class="col">
+                    <a href="#detail-sarang-semut" class="fl-card" data-bs-toggle="modal" data-bs-target="#detail-sarang-semut">
+                        <img src="../assets/sarang.jpg" alt="Sarang Semut" loading="lazy" onerror="this.remove()">
+                        <span class="fl-chip">Tumbuhan Unik</span>
+                        <div class="fl-info">
+                            <h5>Sarang Semut</h5>
+                            <small>Myrmecodia pendans</small>
+                            <span class="fl-more">Lihat detail <i class="fa-solid fa-arrow-right"></i></span>
+                        </div>
+                    </a>
                 </div>
             </div>
         </div>
-    </div>
+    </section>
 
-    <!-- ================= FOOTER ================= -->
+    <section id="bunga" class="section-dark py-5 border-top border-light border-opacity-10">
+        <div class="container pb-4">
+            <div class="text-center mb-4">
+                <h2 class="fl-judul">Bunga</h2>
+                <p class="section-intro mx-auto mb-0" style="max-width: 560px">Bunga indah kebanggaan bangsa.</p>
+            </div>
+            <div class="row row-cols-2 row-cols-md-3 row-cols-lg-4 g-3 g-md-4">
+                <div class="col">
+                    <a href="#detail-anggrek" class="fl-card" data-bs-toggle="modal" data-bs-target="#detail-anggrek">
+                        <img src="https://asset.kompas.com/crops/ukrKA5VpT8BXQeIgO6Fk0kcgTuA=/0x0:1920x1280/1200x800/data/photo/2022/02/02/61fa8689dc71f.jpg" alt="Anggrek Bulan" loading="lazy" onerror="this.remove()">
+                        <span class="fl-chip">Bunga</span>
+                        <div class="fl-info">
+                            <h5>Anggrek Bulan</h5>
+                            <small>Phalaenopsis amabilis</small>
+                            <span class="fl-more">Lihat detail <i class="fa-solid fa-arrow-right"></i></span>
+                        </div>
+                    </a>
+                </div>
+                <div class="col">
+                    <a href="#detail-melati" class="fl-card" data-bs-toggle="modal" data-bs-target="#detail-melati">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSsYTS73vaARtd0lyBIWHloZZzRkKL1iyl-ZnaLaM78kQ&s=10" alt="Melati Putih" loading="lazy" onerror="this.remove()">
+                        <span class="fl-chip">Bunga</span>
+                        <div class="fl-info">
+                            <h5>Melati Putih</h5>
+                            <small>Jasminum sambac</small>
+                            <span class="fl-more">Lihat detail <i class="fa-solid fa-arrow-right"></i></span>
+                        </div>
+                    </a>
+                </div>
+                <div class="col">
+                    <a href="#detail-edelweis" class="fl-card" data-bs-toggle="modal" data-bs-target="#detail-edelweis">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/4/46/Bunga_Senduro.JPG?utm_source=id.wikipedia.org&utm_campaign=index&utm_content=original" alt="Edelweis Jawa" loading="lazy" onerror="this.remove()">
+                        <span class="fl-chip">Bunga</span>
+                        <div class="fl-info">
+                            <h5>Edelweis Jawa</h5>
+                            <small>Anaphalis javanica</small>
+                            <span class="fl-more">Lihat detail <i class="fa-solid fa-arrow-right"></i></span>
+                        </div>
+                    </a>
+                </div>
+                <div class="col">
+                    <a href="#detail-anggrek-hitam" class="fl-card" data-bs-toggle="modal" data-bs-target="#detail-anggrek-hitam">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSvVWERnh3SF5wfI-nbieg-EL3XphGf86TJUsuRjFl8g77TZUujb2RUuhs&s=10" alt="Anggrek Hitam" loading="lazy" onerror="this.remove()">
+                        <span class="fl-chip">Bunga</span>
+                        <div class="fl-info">
+                            <h5>Anggrek Hitam</h5>
+                            <small>Coelogyne pandurata</small>
+                            <span class="fl-more">Lihat detail <i class="fa-solid fa-arrow-right"></i></span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="pohon" class="section-dark py-5 border-top border-light border-opacity-10">
+        <div class="container pb-4">
+            <div class="text-center mb-4">
+                <h2 class="fl-judul">Pohon</h2>
+                <p class="section-intro mx-auto mb-0" style="max-width: 560px">Pohon penting bagi hutan, pantai, dan manusia.</p>
+            </div>
+            <div class="row row-cols-2 row-cols-md-3 row-cols-lg-4 g-3 g-md-4">
+                <div class="col">
+                    <a href="#detail-ulin" class="fl-card" data-bs-toggle="modal" data-bs-target="#detail-ulin">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQDiLN2_GmQaB4qdMtRMUzeNaQTrXVzIlow4Z8LLQ9XFQ&s=10" alt="Ulin (Kayu Besi)" loading="lazy" onerror="this.remove()">
+                        <span class="fl-chip">Pohon</span>
+                        <div class="fl-info">
+                            <h5>Ulin (Kayu Besi)</h5>
+                            <small>Eusideroxylon zwageri</small>
+                            <span class="fl-more">Lihat detail <i class="fa-solid fa-arrow-right"></i></span>
+                        </div>
+                    </a>
+                </div>
+                <div class="col">
+                    <a href="#detail-cendana" class="fl-card" data-bs-toggle="modal" data-bs-target="#detail-cendana">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQFVFaufLVpJfNuLUvhcj7tJZvQq1Ja9mfgwoPGmMowCw&s=10" alt="Cendana" loading="lazy" onerror="this.remove()">
+                        <span class="fl-chip">Pohon</span>
+                        <div class="fl-info">
+                            <h5>Cendana</h5>
+                            <small>Santalum album</small>
+                            <span class="fl-more">Lihat detail <i class="fa-solid fa-arrow-right"></i></span>
+                        </div>
+                    </a>
+                </div>
+                <div class="col">
+                    <a href="#detail-mangrove" class="fl-card" data-bs-toggle="modal" data-bs-target="#detail-mangrove">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRR6EJmUXh-_0lvhCeV9qMjSWi5BHaxAjuP3HgefU5YrQ&s=10" alt="Mangrove (Bakau)" loading="lazy" onerror="this.remove()">
+                        <span class="fl-chip">Pohon</span>
+                        <div class="fl-info">
+                            <h5>Mangrove (Bakau)</h5>
+                            <small>Rhizophora spp.</small>
+                            <span class="fl-more">Lihat detail <i class="fa-solid fa-arrow-right"></i></span>
+                        </div>
+                    </a>
+                </div>
+                <div class="col">
+                    <a href="#detail-jati" class="fl-card" data-bs-toggle="modal" data-bs-target="#detail-jati">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3PD4N7UAw_CeG3nsFgmIEi2dXqapFGgRvUKj2YWqCbA&s=10" alt="Jati" loading="lazy" onerror="this.remove()">
+                        <span class="fl-chip">Pohon</span>
+                        <div class="fl-info">
+                            <h5>Jati</h5>
+                            <small>Tectona grandis</small>
+                            <span class="fl-more">Lihat detail <i class="fa-solid fa-arrow-right"></i></span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="rempah" class="section-dark py-5 border-top border-light border-opacity-10">
+        <div class="container pb-4">
+            <div class="text-center mb-4">
+                <h2 class="fl-judul">Rempah &amp; Obat</h2>
+                <p class="section-intro mx-auto mb-0" style="max-width: 560px">Rempah nusantara yang dulu menarik dunia datang ke Indonesia.</p>
+            </div>
+            <div class="row row-cols-2 row-cols-md-3 row-cols-lg-4 g-3 g-md-4">
+                <div class="col">
+                    <a href="#detail-cengkeh" class="fl-card" data-bs-toggle="modal" data-bs-target="#detail-cengkeh">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS64-0quluJwjJGk5XlyPFD9UyOWrwdfXAL-LgDsydXxQ&s=10" alt="Cengkeh" loading="lazy" onerror="this.remove()">
+                        <span class="fl-chip">Rempah &amp; Obat</span>
+                        <div class="fl-info">
+                            <h5>Cengkeh</h5>
+                            <small>Syzygium aromaticum</small>
+                            <span class="fl-more">Lihat detail <i class="fa-solid fa-arrow-right"></i></span>
+                        </div>
+                    </a>
+                </div>
+                <div class="col">
+                    <a href="#detail-pala" class="fl-card" data-bs-toggle="modal" data-bs-target="#detail-pala">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS0HV1-OqFHekue36WvJtvPnNjTQ4-PSXULx5LZYoKpUw&s=10" alt="Pala" loading="lazy" onerror="this.remove()">
+                        <span class="fl-chip">Rempah &amp; Obat</span>
+                        <div class="fl-info">
+                            <h5>Pala</h5>
+                            <small>Myristica fragrans</small>
+                            <span class="fl-more">Lihat detail <i class="fa-solid fa-arrow-right"></i></span>
+                        </div>
+                    </a>
+                </div>
+                <div class="col">
+                    <a href="#detail-temulawak" class="fl-card" data-bs-toggle="modal" data-bs-target="#detail-temulawak">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRhY6wgO-zZ6xI_gUYouauQwErBQpC-j_4ZMxz0UPuBpA&s=10" alt="Temulawak" loading="lazy" onerror="this.remove()">
+                        <span class="fl-chip">Rempah &amp; Obat</span>
+                        <div class="fl-info">
+                            <h5>Temulawak</h5>
+                            <small>Curcuma zanthorrhiza</small>
+                            <span class="fl-more">Lihat detail <i class="fa-solid fa-arrow-right"></i></span>
+                        </div>
+                    </a>
+                </div>
+                <div class="col">
+                    <a href="#detail-kayu-manis" class="fl-card" data-bs-toggle="modal" data-bs-target="#detail-kayu-manis">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRp5thH2Ikfg-KAckiZRgz9OBbbmNPGGHkYpawDJQJXXg&s=10" alt="Kayu Manis" loading="lazy" onerror="this.remove()">
+                        <span class="fl-chip">Rempah &amp; Obat</span>
+                        <div class="fl-info">
+                            <h5>Kayu Manis</h5>
+                            <small>Cinnamomum burmannii</small>
+                            <span class="fl-more">Lihat detail <i class="fa-solid fa-arrow-right"></i></span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. AJAKAN KE FAUNA -->
+    <section class="section-dark py-5 border-top border-light border-opacity-10 text-center">
+        <div class="container pb-3">
+            <h2 class="fl-judul">Sudah kenal flora? Lanjut ke fauna</h2>
+            <p class="section-intro mx-auto">Jelajahi juga hewan-hewan khas Indonesia.</p>
+            <a href="fauna.html" class="btn btn-outline-light rounded-pill px-4">Lihat Fauna</a>
+        </div>
+    </section>
+
+    <!-- 6. FOOTER -->
     <footer class="section-dark border-top border-light border-opacity-10 py-4">
         <div class="container text-center">
             <a class="navbar-brand fw-bold" href="../index.html"><i class="fa-solid fa-leaf me-2"></i>FloraFauna</a>
             <p class="small mt-2 mb-0 opacity-75">&copy; 2026 FloraFauna. Mengenalkan dan menjaga kekayaan hayati Indonesia.</p>
         </div>
     </footer>
+
+    <!-- =====================================================
+         7. POP-UP (satu untuk setiap flora)
+         id="detail-xxx" harus sama dengan data-bs-target di kartunya.
+         ===================================================== -->
+
+    <!-- Pop-up: Rafflesia Arnoldii -->
+    <div class="modal fade" id="detail-rafflesia" tabindex="-1" aria-labelledby="judul-rafflesia" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content fl-modal">
+                <button type="button" class="btn-close btn-close-white fl-close" data-bs-dismiss="modal" aria-label="Tutup"></button>
+                <div class="modal-body p-0">
+                    <div class="fl-banner">
+                        <img src="../assets/Raflesia.jpg" alt="Rafflesia Arnoldii" onerror="this.remove()">
+                        <div class="fl-banner-text">
+                            <span class="fl-chip">Tumbuhan Unik</span>
+                            <h3 id="judul-rafflesia" class="mt-2 mb-0">Rafflesia Arnoldii</h3>
+                            <em>Rafflesia arnoldii</em>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <p class="mb-4">Bunga terbesar di dunia, lebarnya bisa sampai 1 meter. Tidak punya akar, batang, dan daun karena hidup menumpang di tumbuhan lain.</p>
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <div class="fl-box">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                    <div><small>Habitat</small><p class="mb-0">Hutan hujan Sumatra.</p></div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="fl-box">
+                                    <i class="fa-solid fa-lightbulb"></i>
+                                    <div><small>Tahukah kamu?</small><p class="mb-0">Mekar hanya sekitar 5–6 hari, lalu layu.</p></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Pop-up: Bunga Bangkai -->
+    <div class="modal fade" id="detail-bangkai" tabindex="-1" aria-labelledby="judul-bangkai" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content fl-modal">
+                <button type="button" class="btn-close btn-close-white fl-close" data-bs-dismiss="modal" aria-label="Tutup"></button>
+                <div class="modal-body p-0">
+                    <div class="fl-banner">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSp8dovsUtBbEoWiMqivmRvnIWMc2qIykz48xbtI2_lP4HIS73gy7B_4JF4&s=10" alt="Bunga Bangkai" onerror="this.remove()">
+                        <div class="fl-banner-text">
+                            <span class="fl-chip">Tumbuhan Unik</span>
+                            <h3 id="judul-bangkai" class="mt-2 mb-0">Bunga Bangkai</h3>
+                            <em>Amorphophallus titanum</em>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <p class="mb-4">Bunga tertinggi di dunia, bisa setinggi 3 meter. Baunya busuk untuk memanggil serangga penyerbuk.</p>
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <div class="fl-box">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                    <div><small>Habitat</small><p class="mb-0">Hutan hujan Sumatra.</p></div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="fl-box">
+                                    <i class="fa-solid fa-lightbulb"></i>
+                                    <div><small>Tahukah kamu?</small><p class="mb-0">Berbeda dengan Rafflesia, bunga ini bukan parasit.</p></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Pop-up: Kantong Semar -->
+    <div class="modal fade" id="detail-kantong-semar" tabindex="-1" aria-labelledby="judul-kantong-semar" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content fl-modal">
+                <button type="button" class="btn-close btn-close-white fl-close" data-bs-dismiss="modal" aria-label="Tutup"></button>
+                <div class="modal-body p-0">
+                    <div class="fl-banner">
+                        <img src="../assets/kantong.jpg" alt="Kantong Semar" onerror="this.remove()">
+                        <div class="fl-banner-text">
+                            <span class="fl-chip">Tumbuhan Unik</span>
+                            <h3 id="judul-kantong-semar" class="mt-2 mb-0">Kantong Semar</h3>
+                            <em>Nepenthes spp.</em>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <p class="mb-4">Tumbuhan pemakan serangga. Daunnya berbentuk kantong berisi cairan yang mencerna serangga.</p>
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <div class="fl-box">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                    <div><small>Habitat</small><p class="mb-0">Hutan dan rawa di Sumatra, Kalimantan, Sulawesi, dan Papua.</p></div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="fl-box">
+                                    <i class="fa-solid fa-lightbulb"></i>
+                                    <div><small>Tahukah kamu?</small><p class="mb-0">Banyak jenisnya hanya ada di Indonesia.</p></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Pop-up: Anggrek Bulan -->
+    <div class="modal fade" id="detail-anggrek" tabindex="-1" aria-labelledby="judul-anggrek" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content fl-modal">
+                <button type="button" class="btn-close btn-close-white fl-close" data-bs-dismiss="modal" aria-label="Tutup"></button>
+                <div class="modal-body p-0">
+                    <div class="fl-banner">
+                        <img src="https://asset.kompas.com/crops/ukrKA5VpT8BXQeIgO6Fk0kcgTuA=/0x0:1920x1280/1200x800/data/photo/2022/02/02/61fa8689dc71f.jpg" alt="Anggrek Bulan" onerror="this.remove()">
+                        <div class="fl-banner-text">
+                            <span class="fl-chip">Bunga</span>
+                            <h3 id="judul-anggrek" class="mt-2 mb-0">Anggrek Bulan</h3>
+                            <em>Phalaenopsis amabilis</em>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <p class="mb-4">Bunga nasional Indonesia (puspa pesona). Kelopaknya putih bersih dan bisa bertahan berminggu-minggu.</p>
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <div class="fl-box">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                    <div><small>Habitat</small><p class="mb-0">Hutan tropis dataran rendah.</p></div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="fl-box">
+                                    <i class="fa-solid fa-lightbulb"></i>
+                                    <div><small>Tahukah kamu?</small><p class="mb-0">Hidup menempel di pohon tetapi tidak merugikan pohonnya.</p></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Pop-up: Melati Putih -->
+    <div class="modal fade" id="detail-melati" tabindex="-1" aria-labelledby="judul-melati" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content fl-modal">
+                <button type="button" class="btn-close btn-close-white fl-close" data-bs-dismiss="modal" aria-label="Tutup"></button>
+                <div class="modal-body p-0">
+                    <div class="fl-banner">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSsYTS73vaARtd0lyBIWHloZZzRkKL1iyl-ZnaLaM78kQ&s=10" alt="Melati Putih" onerror="this.remove()">
+                        <div class="fl-banner-text">
+                            <span class="fl-chip">Bunga</span>
+                            <h3 id="judul-melati" class="mt-2 mb-0">Melati Putih</h3>
+                            <em>Jasminum sambac</em>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <p class="mb-4">Bunga nasional Indonesia (puspa bangsa). Putih, mungil, harum, dan melambangkan kesucian.</p>
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <div class="fl-box">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                    <div><small>Habitat</small><p class="mb-0">Banyak ditanam di seluruh Indonesia, terutama Jawa.</p></div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="fl-box">
+                                    <i class="fa-solid fa-lightbulb"></i>
+                                    <div><small>Tahukah kamu?</small><p class="mb-0">Dipakai untuk membuat teh melati.</p></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Pop-up: Edelweis Jawa -->
+    <div class="modal fade" id="detail-edelweis" tabindex="-1" aria-labelledby="judul-edelweis" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content fl-modal">
+                <button type="button" class="btn-close btn-close-white fl-close" data-bs-dismiss="modal" aria-label="Tutup"></button>
+                <div class="modal-body p-0">
+                    <div class="fl-banner">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/4/46/Bunga_Senduro.JPG?utm_source=id.wikipedia.org&utm_campaign=index&utm_content=original" alt="Edelweis Jawa" onerror="this.remove()">
+                        <div class="fl-banner-text">
+                            <span class="fl-chip">Bunga</span>
+                            <h3 id="judul-edelweis" class="mt-2 mb-0">Edelweis Jawa</h3>
+                            <em>Anaphalis javanica</em>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <p class="mb-4">Disebut bunga abadi karena tidak cepat layu. Tumbuh di gunung yang dingin dan tandus.</p>
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <div class="fl-box">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                    <div><small>Habitat</small><p class="mb-0">Pegunungan Jawa, seperti Semeru dan Gede Pangrango.</p></div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="fl-box">
+                                    <i class="fa-solid fa-lightbulb"></i>
+                                    <div><small>Tahukah kamu?</small><p class="mb-0">Dilindungi, jadi dilarang dipetik.</p></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Pop-up: Ulin (Kayu Besi) -->
+    <div class="modal fade" id="detail-ulin" tabindex="-1" aria-labelledby="judul-ulin" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content fl-modal">
+                <button type="button" class="btn-close btn-close-white fl-close" data-bs-dismiss="modal" aria-label="Tutup"></button>
+                <div class="modal-body p-0">
+                    <div class="fl-banner">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQDiLN2_GmQaB4qdMtRMUzeNaQTrXVzIlow4Z8LLQ9XFQ&s=10" alt="Ulin (Kayu Besi)" onerror="this.remove()">
+                        <div class="fl-banner-text">
+                            <span class="fl-chip">Pohon</span>
+                            <h3 id="judul-ulin" class="mt-2 mb-0">Ulin (Kayu Besi)</h3>
+                            <em>Eusideroxylon zwageri</em>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <p class="mb-4">Dijuluki kayu besi karena sangat keras serta tahan air dan rayap. Dipakai untuk tiang rumah dan jembatan.</p>
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <div class="fl-box">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                    <div><small>Habitat</small><p class="mb-0">Hutan Kalimantan dan Sumatra.</p></div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="fl-box">
+                                    <i class="fa-solid fa-lightbulb"></i>
+                                    <div><small>Tahukah kamu?</small><p class="mb-0">Tumbuhnya sangat lambat, jadi mudah langka.</p></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Pop-up: Cendana -->
+    <div class="modal fade" id="detail-cendana" tabindex="-1" aria-labelledby="judul-cendana" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content fl-modal">
+                <button type="button" class="btn-close btn-close-white fl-close" data-bs-dismiss="modal" aria-label="Tutup"></button>
+                <div class="modal-body p-0">
+                    <div class="fl-banner">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQFVFaufLVpJfNuLUvhcj7tJZvQq1Ja9mfgwoPGmMowCw&s=10" alt="Cendana" onerror="this.remove()">
+                        <div class="fl-banner-text">
+                            <span class="fl-chip">Pohon</span>
+                            <h3 id="judul-cendana" class="mt-2 mb-0">Cendana</h3>
+                            <em>Santalum album</em>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <p class="mb-4">Kayu dan minyaknya harum, dipakai untuk parfum, dupa, dan kerajinan.</p>
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <div class="fl-box">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                    <div><small>Habitat</small><p class="mb-0">Nusa Tenggara Timur (Timor dan Sumba).</p></div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="fl-box">
+                                    <i class="fa-solid fa-lightbulb"></i>
+                                    <div><small>Tahukah kamu?</small><p class="mb-0">Akarnya mengambil sebagian makanan dari tanaman lain.</p></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Pop-up: Mangrove (Bakau) -->
+    <div class="modal fade" id="detail-mangrove" tabindex="-1" aria-labelledby="judul-mangrove" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content fl-modal">
+                <button type="button" class="btn-close btn-close-white fl-close" data-bs-dismiss="modal" aria-label="Tutup"></button>
+                <div class="modal-body p-0">
+                    <div class="fl-banner">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRR6EJmUXh-_0lvhCeV9qMjSWi5BHaxAjuP3HgefU5YrQ&s=10" alt="Mangrove (Bakau)" onerror="this.remove()">
+                        <div class="fl-banner-text">
+                            <span class="fl-chip">Pohon</span>
+                            <h3 id="judul-mangrove" class="mt-2 mb-0">Mangrove (Bakau)</h3>
+                            <em>Rhizophora spp.</em>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <p class="mb-4">Menjaga pantai dari abrasi dan menjadi tempat hidup ikan, udang, dan kepiting.</p>
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <div class="fl-box">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                    <div><small>Habitat</small><p class="mb-0">Pesisir dan muara sungai di seluruh nusantara.</p></div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="fl-box">
+                                    <i class="fa-solid fa-lightbulb"></i>
+                                    <div><small>Tahukah kamu?</small><p class="mb-0">Akarnya menyembul ke atas supaya bisa hidup di lumpur asin.</p></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Pop-up: Cengkeh -->
+    <div class="modal fade" id="detail-cengkeh" tabindex="-1" aria-labelledby="judul-cengkeh" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content fl-modal">
+                <button type="button" class="btn-close btn-close-white fl-close" data-bs-dismiss="modal" aria-label="Tutup"></button>
+                <div class="modal-body p-0">
+                    <div class="fl-banner">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS64-0quluJwjJGk5XlyPFD9UyOWrwdfXAL-LgDsydXxQ&s=10" alt="Cengkeh" onerror="this.remove()">
+                        <div class="fl-banner-text">
+                            <span class="fl-chip">Rempah &amp; Obat</span>
+                            <h3 id="judul-cengkeh" class="mt-2 mb-0">Cengkeh</h3>
+                            <em>Syzygium aromaticum</em>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <p class="mb-4">Kuncup bunga kering yang dipakai untuk masakan, obat tradisional, dan rokok kretek.</p>
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <div class="fl-box">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                    <div><small>Habitat</small><p class="mb-0">Asli Maluku, terutama Ternate dan Tidore.</p></div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="fl-box">
+                                    <i class="fa-solid fa-lightbulb"></i>
+                                    <div><small>Tahukah kamu?</small><p class="mb-0">Dulu cengkeh memicu perdagangan rempah dunia.</p></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Pop-up: Pala -->
+    <div class="modal fade" id="detail-pala" tabindex="-1" aria-labelledby="judul-pala" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content fl-modal">
+                <button type="button" class="btn-close btn-close-white fl-close" data-bs-dismiss="modal" aria-label="Tutup"></button>
+                <div class="modal-body p-0">
+                    <div class="fl-banner">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS0HV1-OqFHekue36WvJtvPnNjTQ4-PSXULx5LZYoKpUw&s=10" alt="Pala" onerror="this.remove()">
+                        <div class="fl-banner-text">
+                            <span class="fl-chip">Rempah &amp; Obat</span>
+                            <h3 id="judul-pala" class="mt-2 mb-0">Pala</h3>
+                            <em>Myristica fragrans</em>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <p class="mb-4">Satu pohon menghasilkan dua rempah: biji pala dan fuli (selaput merah pembungkus biji).</p>
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <div class="fl-box">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                    <div><small>Habitat</small><p class="mb-0">Kepulauan Banda, Maluku.</p></div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="fl-box">
+                                    <i class="fa-solid fa-lightbulb"></i>
+                                    <div><small>Tahukah kamu?</small><p class="mb-0">Dulu hanya Banda yang punya pala di seluruh dunia.</p></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Pop-up: Temulawak -->
+    <div class="modal fade" id="detail-temulawak" tabindex="-1" aria-labelledby="judul-temulawak" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content fl-modal">
+                <button type="button" class="btn-close btn-close-white fl-close" data-bs-dismiss="modal" aria-label="Tutup"></button>
+                <div class="modal-body p-0">
+                    <div class="fl-banner">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRhY6wgO-zZ6xI_gUYouauQwErBQpC-j_4ZMxz0UPuBpA&s=10" alt="Temulawak" onerror="this.remove()">
+                        <div class="fl-banner-text">
+                            <span class="fl-chip">Rempah &amp; Obat</span>
+                            <h3 id="judul-temulawak" class="mt-2 mb-0">Temulawak</h3>
+                            <em>Curcuma zanthorrhiza</em>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <p class="mb-4">Tanaman obat asli Indonesia. Rimpang kuning-jingganya jadi bahan utama jamu.</p>
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <div class="fl-box">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                    <div><small>Habitat</small><p class="mb-0">Banyak tumbuh di Jawa.</p></div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="fl-box">
+                                    <i class="fa-solid fa-lightbulb"></i>
+                                    <div><small>Tahukah kamu?</small><p class="mb-0">Masih sekeluarga dengan kunyit dan jahe.</p></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Pop-up: Sarang Semut -->
+    <div class="modal fade" id="detail-sarang-semut" tabindex="-1" aria-labelledby="judul-sarang-semut" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content fl-modal">
+                <button type="button" class="btn-close btn-close-white fl-close" data-bs-dismiss="modal" aria-label="Tutup"></button>
+                <div class="modal-body p-0">
+                    <div class="fl-banner">
+                        <img src="../assets/sarang.jpg" alt="Sarang Semut" onerror="this.remove()">
+                        <div class="fl-banner-text">
+                            <span class="fl-chip">Tumbuhan Unik</span>
+                            <h3 id="judul-sarang-semut" class="mt-2 mb-0">Sarang Semut</h3>
+                            <em>Myrmecodia pendans</em>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <p class="mb-4">Tumbuhan epifit dengan umbi membesar yang berlubang-lubang. Rongga di dalamnya dihuni semut sebagai sarang.</p>
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <div class="fl-box">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                    <div><small>Habitat</small><p class="mb-0">Hutan dan pegunungan Papua, juga Kalimantan.</p></div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="fl-box">
+                                    <i class="fa-solid fa-lightbulb"></i>
+                                    <div><small>Tahukah kamu?</small><p class="mb-0">Semut mendapat tempat tinggal, sedangkan tumbuhan mendapat zat hara dari sisa semut.</p></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Pop-up: Anggrek Hitam -->
+    <div class="modal fade" id="detail-anggrek-hitam" tabindex="-1" aria-labelledby="judul-anggrek-hitam" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content fl-modal">
+                <button type="button" class="btn-close btn-close-white fl-close" data-bs-dismiss="modal" aria-label="Tutup"></button>
+                <div class="modal-body p-0">
+                    <div class="fl-banner">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSvVWERnh3SF5wfI-nbieg-EL3XphGf86TJUsuRjFl8g77TZUujb2RUuhs&s=10" alt="Anggrek Hitam" onerror="this.remove()">
+                        <div class="fl-banner-text">
+                            <span class="fl-chip">Bunga</span>
+                            <h3 id="judul-anggrek-hitam" class="mt-2 mb-0">Anggrek Hitam</h3>
+                            <em>Coelogyne pandurata</em>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <p class="mb-4">Anggrek langka dengan kelopak hijau dan lidah bunga berwarna hitam beludru. Menjadi salah satu ikon flora Kalimantan.</p>
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <div class="fl-box">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                    <div><small>Habitat</small><p class="mb-0">Hutan hujan Kalimantan, terutama di tepi sungai dan rawa.</p></div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="fl-box">
+                                    <i class="fa-solid fa-lightbulb"></i>
+                                    <div><small>Tahukah kamu?</small><p class="mb-0">Dilindungi karena populasinya di alam terus menyusut.</p></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Pop-up: Jati -->
+    <div class="modal fade" id="detail-jati" tabindex="-1" aria-labelledby="judul-jati" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content fl-modal">
+                <button type="button" class="btn-close btn-close-white fl-close" data-bs-dismiss="modal" aria-label="Tutup"></button>
+                <div class="modal-body p-0">
+                    <div class="fl-banner">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3PD4N7UAw_CeG3nsFgmIEi2dXqapFGgRvUKj2YWqCbA&s=10" alt="Jati" onerror="this.remove()">
+                        <div class="fl-banner-text">
+                            <span class="fl-chip">Pohon</span>
+                            <h3 id="judul-jati" class="mt-2 mb-0">Jati</h3>
+                            <em>Tectona grandis</em>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <p class="mb-4">Pohon penghasil kayu bermutu tinggi yang kuat, awet, dan indah seratnya. Banyak dipakai untuk furnitur dan kapal.</p>
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <div class="fl-box">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                    <div><small>Habitat</small><p class="mb-0">Hutan jati di Jawa dan Nusa Tenggara, juga Muna di Sulawesi Tenggara.</p></div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="fl-box">
+                                    <i class="fa-solid fa-lightbulb"></i>
+                                    <div><small>Tahukah kamu?</small><p class="mb-0">Kayunya mengandung minyak alami sehingga tahan rayap dan cuaca.</p></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Pop-up: Kayu Manis -->
+    <div class="modal fade" id="detail-kayu-manis" tabindex="-1" aria-labelledby="judul-kayu-manis" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content fl-modal">
+                <button type="button" class="btn-close btn-close-white fl-close" data-bs-dismiss="modal" aria-label="Tutup"></button>
+                <div class="modal-body p-0">
+                    <div class="fl-banner">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRp5thH2Ikfg-KAckiZRgz9OBbbmNPGGHkYpawDJQJXXg&s=10" alt="Kayu Manis" onerror="this.remove()">
+                        <div class="fl-banner-text">
+                            <span class="fl-chip">Rempah &amp; Obat</span>
+                            <h3 id="judul-kayu-manis" class="mt-2 mb-0">Kayu Manis</h3>
+                            <em>Cinnamomum burmannii</em>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <p class="mb-4">Rempah dari kulit batang yang dikeringkan hingga menggulung. Dipakai untuk masakan, minuman hangat, dan obat tradisional.</p>
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <div class="fl-box">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                    <div><small>Habitat</small><p class="mb-0">Dataran tinggi Sumatra, terutama Kerinci di Jambi.</p></div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="fl-box">
+                                    <i class="fa-solid fa-lightbulb"></i>
+                                    <div><small>Tahukah kamu?</small><p class="mb-0">Indonesia termasuk penghasil kayu manis terbesar di dunia.</p></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
